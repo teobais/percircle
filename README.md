@@ -1,10 +1,98 @@
-# css-percentage-circle
+# percircle
 Pure CSS Percentage Circle
+<hr>
+#Demo
+Default circles:
+<p align="center">
+  <img  src="_img/sample_light.gif" alt="Sample circles" />
+</p>
 
-The idea comes from André Firchow, who developed this circle. A demo of this, can be found <a href="http://circle.firchow.net/" target="_blank">here</a>, whereas the corresponding post that he blogged about, can be found <a href="http://firchow.net/css3-prozentanzeige-kreis/" target="_blank">here</a>.
-<hr/>
-What I only changed in the original project, is the support for a light pink-like color (<code>#FF8E8E</code>); I actually replaced the existing blue one with the one I'm using in the "Skills" section of my <a href="http://thodorisbais.com/">website</a>, which looks like this:
+Dark circles:
+<p align="center">
+  <img  src="_img/sample_dark.gif" alt="Dark circles" />
+</p>
+
+#Usage
+####Load the module to your page
+```html
+<!DOCTYPE HTML>
+<html>
+<head>
+  <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script type="text/javascript" src="js/percircle.js"></script>
+  <link rel="stylesheet" href="css/percircle.css">
+</head>
+</html>
+```
+
+#### Define the circle objects
+###### Make sure each percircle's id ends with "circle".
+Big blue circle marked with a percent of 50%:
+```html
+<div id="bluecircle" class="c100 p50 big">
+    <span>50%</span>
+    <div class="slice">
+        <div class="bar"></div>
+        <div class="fill"></div>
+    </div>
+</div>
+```
+<p align="center">
+  <img  src="_img/big_blue_50.gif" alt="Big blue circle" />
+</p>
+<hr>
+
+Default orange circle marked with a percent of 65%:
+```html
+<div id="orangecircle" class="c100 p65 orange">
+    <span>65%</span>
+    <div class="slice">
+        <div class="bar"></div>
+        <div class="fill"></div>
+    </div>
+</div>
+```
+<p align="center">
+  <img  src="_img/default_orange_65.gif" alt="Default orange circle" />
+</p>
+<hr>
+
+Default orange circle marked with a percent of 65%:
+```html
+<div id="pinkcircle" class="c100 p82 small pink">
+    <span>82%</span>
+    <div class="slice">
+        <div class="bar"></div>
+        <div class="fill"></div>
+    </div>
+</div>
+```
 
 <p align="center">
-  <img  src="_img/pink_circle.png" alt="Pink percentage circle" />
+  <img  src="_img/small_pink_82.gif" alt="Small pink circle" />
 </p>
+
+
+#Credits and More
+The original project was created from <a href="http://circle.firchow.net/" target="_blank">Andre Firchow</a> and as I didn't find any similar here, I uploaded it.
+
+However, the project loaded all the css transformations, in the <code>percircle.css</code> file. Now, it makes use of the <a href="https://api.jquery.com/category/selectors/" target="_blank">jQuery selectors</a> in order to do so.
+
+In addition, by defining a <b>percircle</b> item for once (that is, by providing a div id, ending with "circle"), all the similar occurences of the specified percentage will be updated, without the need of defining a div id for the corresponding items. This means that if there are three "50%" percircles, only one of them could specify an id ending with "circle".
+
+#TODO
+> Provide a better implementation, as there are still repeated parts in the html:
+```html
+<span>50%</span>
+<div class="slice">
+    <div class="bar"></div>
+    <div class="fill"></div>
+</div>
+```
+User should be able to define a percircle item like:
+```html
+<div id="acircle" class="c100 p50 big">
+</div>
+```
+<hr/>
+> Provide better color support and a more abstract way of defining percircle colors.
