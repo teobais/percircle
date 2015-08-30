@@ -1,6 +1,6 @@
 # percircle
 > Pure CSS Percentage Circle
-<hr>
+
 #Demo
 Default circles:
 <p align="center">
@@ -73,15 +73,8 @@ Default orange circle marked with a percent of 65%:
 </p>
 
 
-#Credits and More
-The original project was created from <a href="http://circle.firchow.net/" target="_blank">Andre Firchow</a> and as I didn't find any similar here, I uploaded it.
-
-However, the project loaded all the css transformations, in the <code>percircle.css</code> file. Now, it makes use of the <a href="https://api.jquery.com/category/selectors/" target="_blank">jQuery selectors</a> in order to do so.
-
-In addition, by defining a <b>percircle</b> item for once (that is, by providing a div id, ending with "circle"), all the similar occurences of the specified percentage will be updated, without the need of defining a div id for the corresponding items. This means that if there are three "50%" percircles, only one of them could specify an id ending with "circle".
-
 #TODO
-> Provide a better implementation, as there are still repeated parts in the html:
+- Provide a better implementation, as there are still repeated parts in the html:
 ```html
 <span>50%</span>
 <div class="slice">
@@ -94,5 +87,13 @@ User should be able to define a percircle item like:
 <div id="acircle" class="c100 p50 big">
 </div>
 ```
-<hr/>
-> Provide better color support and a more abstract way of defining percircle colors.
+- Provide better color support and a more abstract way of defining percircle colors.
+
+
+#Credits and More
+The original project was created from <a href="http://circle.firchow.net/" target="_blank">Andre Firchow</a> and as I didn't find any similar here, I uploaded it.
+
+However, the project loaded all the css transformations, in the <code>percircle.css</code> file. Now, it makes use of the <a href="https://api.jquery.com/category/selectors/" target="_blank">jQuery selectors</a> in order to do so.
+
+In addition, by defining a <b>percircle</b> item for once (that is, by providing a div id, ending with "circle"), all the similar occurences of the specified percentage will be updated, without the need of defining a div id for the corresponding items. This means that if there are three "50%" percircles, only one of them could specify an id ending with "circle".
+
