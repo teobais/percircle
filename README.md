@@ -74,7 +74,7 @@ Default orange circle marked with a percent of 65%:
 
 
 #TODO
-- Provide a better implementation, as there are still repeated parts in the html:
+- Provide a better implementation (maybe without having to define a div id, too), as there are still repeated parts in the html:
 ```html
 <span>50%</span>
 <div class="slice">
