@@ -73,22 +73,8 @@ Default orange circle marked with a percent of 65%:
 </p>
 
 
-#TODO
-- Provide a better implementation (maybe without having to define a div id, too), as there are still repeated parts in the html:
-```html
-<span>50%</span>
-<div class="slice">
-    <div class="bar"></div>
-    <div class="fill"></div>
-</div>
-```
-User should be able to define a percircle item like:
-```html
-<div id="acircle" class="c100 p50 big">
-</div>
-```
-- Provide better color support and a more abstract way of defining percircle colors.
-
+#Contribute
+Feel free to submit a pull request for the <a href="https://github.com/toubou91/percircle/issues" target="_blank">existing</a> issues.
 
 #Credits and More
 The original project was created from <a href="http://circle.firchow.net/" target="_blank">Andre Firchow</a> and as I didn't find any similar here, I uploaded it.
