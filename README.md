@@ -1,5 +1,5 @@
 # percircle
-> Pure CSS Percentage Circle
+> CSS Percentage Circle
 
 #Demo
 Default circles:
