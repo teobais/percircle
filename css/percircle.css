@@ -1,95 +1,123 @@
-﻿.c100.dark {
+﻿.percircle.dark {
   background-color: #777777;
 }
-.c100.dark .bar,
-.c100.dark .fill {
+.percircle.dark .bar,
+.percircle.dark .fill {
   border-color: #c6ff00;
 }
-.c100.dark > span {
+.percircle.dark > span {
   color: #777777;
 }
-.c100.dark:after {
+.percircle.dark:after {
   background-color: #555555;
 }
-.c100.dark:hover > span {
+.percircle.dark:hover > span {
   color: #c6ff00;
 }
-.c100.red .bar,
-.c100.red .fill {
-  border-color: #cc1111;
+.percircle.red .bar,
+.percircle.red .fill {
+  border-color: #dd5454;
 }
-.c100.red:hover > span {
-  color: #cc1111;
+.percircle.red:hover > span {
+  color: #dd5454;
 }
-.c100.red.dark .bar,
-.c100.red.dark .fill {
-  border-color: #ea1b1b;
+.percircle.red.dark .bar,
+.percircle.red.dark .fill {
+  border-color: #f84a4a;
 }
-.c100.red.dark:hover > span {
-  color: #ea1b1b;
+.percircle.red.dark:hover > span {
+  color: #f84a4a;
 }
-.c100.blue .bar,
-.c100.blue .fill {
-  border-color: #00a0bd;
+.percircle.blue .bar,
+.percircle.blue .fill {
+  border-color: #82cefa;
 }
-.c100.blue:hover > span {
-  color: #00a0bd;
+.percircle.blue:hover > span {
+  color: #82cefa;
 }
-.c100.blue.dark .bar,
-.c100.blue.dark .fill {
+.percircle.blue.dark .bar,
+.percircle.blue.dark .fill {
   border-color: #20cceb;
 }
-.c100.blue.dark:hover > span {
+.percircle.blue.dark:hover > span {
   color: #20cceb;
 }
-.c100.green .bar,
-.c100.green .fill {
-  border-color: #4db53c;
+.percircle.green .bar,
+.percircle.green .fill {
+  border-color: #8dea7b;
 }
-.c100.green:hover > span {
-  color: #4db53c;
+.percircle.green:hover > span {
+  color: #8dea7b;
 }
-.c100.green.dark .bar,
-.c100.green.dark .fill {
-  border-color: #5fd400;
+.percircle.green.dark .bar,
+.percircle.green.dark .fill {
+  border-color: #a9ff3a;
 }
-.c100.green.dark:hover > span {
-  color: #5fd400;
+.percircle.green.dark:hover > span {
+  color: #a9ff3a;
 }
-.c100.orange .bar,
-.c100.orange .fill {
+.percircle.orange .bar,
+.percircle.orange .fill {
+  border-color: #e88239;
+}
+.percircle.orange:hover > span {
+  color: #e88239;
+}
+.percircle.orange.dark .bar,
+.percircle.orange.dark .fill {
   border-color: #dc5b00;
 }
-.c100.orange:hover > span {
+.percircle.orange.dark:hover > span {
   color: #dc5b00;
 }
-.c100.orange.dark .bar,
-.c100.orange.dark .fill {
-  border-color: #dc5b00;
+.percircle.pink .bar,
+.percircle.pink .fill {
+  border-color: #ff8ed0;
 }
-.c100.orange.dark:hover > span {
-  color: #dc5b00;
+.percircle.pink:hover > span {
+  color: #ff8ed0;
 }
-.c100.pink .bar,
-.c100.pink .fill {
-  border-color: #ff8e8e;
+.percircle.pink.dark .bar,
+.percircle.pink.dark .fill {
+  border-color: #ff58b9;
 }
-.c100.pink:hover > span {
-  color: #ff8e8e;
+.percircle.pink.dark:hover > span {
+  color: #ff58b9;
 }
-.c100.pink.dark .bar,
-.c100.pink.dark .fill {
-  border-color: #ff8e8e;
+.percircle.purple .bar,
+.percircle.purple .fill {
+  border-color: #aa7eff;
 }
-.c100.pink.dark:hover > span {
-  color: #ff8e8e;
+.percircle.purple:hover > span {
+  color: #aa7eff;
+}
+.percircle.purple.dark .bar,
+.percircle.purple.dark .fill {
+  border-color: #7a38f7;
+}
+.percircle.purple.dark:hover > span {
+  color: #7a38f7;
+}
+.percircle.yellow .bar,
+.percircle.yellow .fill {
+  border-color: #dcbd00;
+}
+.percircle.yellow:hover > span {
+  color: #dcbd00;
+}
+.percircle.yellow.dark .bar,
+.percircle.yellow.dark .fill {
+  border-color: #ffdb00;
+}
+.percircle.yellow.dark:hover > span {
+  color: #ffdb00;
 }
 .rect-auto,
-.c100.gt50 .slice {
+.percircle.gt50 .slice {
   clip: rect(auto, auto, auto, auto);
 }
 .pie,
-.c100 .bar,
+.percircle .bar,
 .gt50 .fill {
   position: absolute;
   border: 0.08em solid #307bbb;
@@ -111,11 +139,6 @@
   -moz-backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  -webkit-transition: -webkit-transform 0.6s ease-in-out;
-  -moz-transition: -moz-transform 0.6s ease-in-out;
-  -ms-transition: -ms-transform 0.6s ease-in-out;
-  -o-transition: -o-transform 0.6s ease-in-out;
-  transition: transform 0.6s ease-in-out;
 }
 .pie-fill,
 .gt50 .bar:after,
@@ -126,7 +149,7 @@
   -o-transform: rotate(180deg);
   transform: rotate(180deg);
 }
-.c100 {
+.percircle {
   position: relative;
   font-size: 120px;
   width: 1em;
@@ -140,24 +163,39 @@
   margin: 0 0.1em 0.1em 0;
   background-color: #cccccc;
 }
-.c100 *,
-.c100 *:before,
-.c100 *:after {
+.percircle *,
+.percircle *:before,
+.percircle *:after {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
 }
-.c100.center {
+.percircle.animate > span,
+.percircle.animate:after {
+  -webkit-transition: -webkit-transform 0.2s ease-in-out;
+  -moz-transition: -moz-transform 0.2s ease-in-out;
+  -ms-transition: -ms-transform 0.2s ease-in-out;
+  -o-transition: -o-transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
+}
+.percircle.animate .bar {
+  -webkit-transition: -webkit-transform 0.6s ease-in-out;
+  -moz-transition: -moz-transform 0.6s ease-in-out;
+  -ms-transition: -ms-transform 0.6s ease-in-out;
+  -o-transition: -o-transform 0.6s ease-in-out;
+  transition: transform 0.6s ease-in-out;
+}
+.percircle.center {
   float: none;
   margin: 0 auto;
 }
-.c100.big {
+.percircle.big {
   font-size: 240px;
 }
-.c100.small {
+.percircle.small {
   font-size: 80px;
 }
-.c100 > span {
+.percircle > span {
   position: absolute;
   z-index: 1;
   width: 100%;
@@ -169,13 +207,8 @@
   display: block;
   text-align: center;
   white-space: nowrap;
-  -webkit-transition: -webkit-transform 0.2s ease-in-out;
-  -moz-transition: -moz-transform 0.2s ease-in-out;
-  -ms-transition: -ms-transform 0.2s ease-in-out;
-  -o-transition: -o-transform 0.2s ease-in-out;
-  transition: transform 0.2s ease-in-out;
 }
-.c100:after {
+.percircle:after {
   position: absolute;
   top: 0.08em;
   left: 0.08em;
@@ -189,22 +222,17 @@
   background-color: #f5f5f5;
   width: 0.84em;
   height: 0.84em;
-  -webkit-transition: -webkit-transform 0.2s ease-in-out;
-  -moz-transition: -moz-transform 0.2s ease-in-out;
-  -ms-transition: -ms-transform 0.2s ease-in-out;
-  -o-transition: -o-transform 0.2s ease-in-out;
-  transition: transform 0.2s ease-in-out;
 }
-.c100 .slice {
+.percircle .slice {
   position: absolute;
   width: 1em;
   height: 1em;
   clip: rect(0, 1em, 1em, 0.5em);
 }
-.c100:hover {
+.percircle:hover {
   cursor: default;
 }
-.c100:hover > span {
+.percircle:hover > span {
   -webkit-transform: scale(1.3);
   -moz-transform: scale(1.3);
   -ms-transform: scale(1.3);
@@ -212,7 +240,7 @@
   transform: scale(1.3);
   color: #307bbb;
 }
-.c100:hover:after {
+.percircle:hover:after {
   -webkit-transform: scale(1.1);
   -moz-transform: scale(1.1);
   -ms-transform: scale(1.1);
