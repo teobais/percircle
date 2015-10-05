@@ -28,8 +28,13 @@
         .clearfix:before,.clearfix:after {content: " "; display: table;}
         .clearfix:after {clear: both;}
         .clearfix {*zoom: 1;}
+        .dark-area {
+            background-color: #555;
+            padding: 40px;
+            margin: 0 -40px 20px -40px;
+        }
     </style>
-    <link rel="stylesheet" href="css/percircle.css">
+    <link rel="stylesheet" href="css/percircle.min.css">
 </head>
 
 <body>
@@ -51,8 +56,9 @@
         <h2>Custom text</h2>
         <!-- custom text -->
         <div class="clearfix">
-            <div id="pinkcircle" data-text="loading" data-percent="65" class="c100 pink big"></div>
-            <div id="bluecircle" data-text="done" data-percent="18" class="c100 red"></div>
+            <div id="pinkcircle" data-text="work" data-percent="65" class="c100 pink big"></div>
+            <div id="bluecircle" data-text="rest" data-percent="87" class="c100 red"></div>
+            <div id="bluecircle" data-text="play" data-percent="30" class="c100 small blue"></div>
         </div>
         <!-- /custom text  -->
 

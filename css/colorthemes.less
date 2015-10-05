@@ -1,0 +1,59 @@
+.c100
+{
+    @default-color-dark:#555;
+    @default-bar-color-dark: #c6ff00;
+    @default-fill-color-dark: #777;
+    
+    .colortheme(@lightcolor, @darkcolor){
+        .bar, .fill {
+          border-color: @lightcolor;
+        }
+        &:hover > span {
+          color: @lightcolor;
+        }
+        &.dark .bar, &.dark .fill {
+          border-color: @darkcolor;
+        }
+        &.dark:hover > span {
+          color: @darkcolor;
+        }
+    }
+
+    &.dark {
+        background-color: @default-fill-color-dark;
+         .bar, .fill {
+             border-color:@default-bar-color-dark;
+         }
+         > span {
+            color: @default-fill-color-dark;
+        }
+        &:after {
+            background-color: @default-color-dark;
+        }
+        &:hover > span {
+            color: @default-bar-color-dark;
+        }
+    }
+
+    &.red {
+        .colortheme(#cc1111, #ea1b1b);
+    }
+
+    &.blue {
+        .colortheme(#00a0bd, #20cceb);
+    }
+
+
+    &.green {
+        .colortheme(#4db53c, #5fd400);
+    }   
+        
+    &.orange{
+         .colortheme(#dc5b00, #dc5b00);
+    }
+
+    &.pink {
+        .colortheme(#ff8e8e, #ff8e8e);
+    }
+    
+}
