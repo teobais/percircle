@@ -3,92 +3,70 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-		<title>percirle</title>
-		<meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-		<script type="text/javascript" src="js/percircle.js"></script>
-		
-        <!-- styles for this little demo page -->
-        <style type="text/css">
-            body{
-                background-color: #f5f5f5;
-                margin: 0;
-                padding: 0;
-                font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-            }
-            .page {
-                margin: 40px;
-            }
-            h1{
-                margin: 40px 0 60px 0;
-            }
-        </style>
-        <link rel="stylesheet" href="css/percircle.css">
-    </head>
+<head>
+    <meta charset="utf-8">
+    <title>percirle</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/percircle.js"></script>
+    
+    <!-- styles for this little demo page -->
+    <style type="text/css">
+        body{
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        }
+        .page {
+            margin: 40px;
+        }
+        h1{
+            margin: 40px 0 60px 0;
+        }
+        .clearfix:before,.clearfix:after {content: " "; display: table;}
+        .clearfix:after {clear: both;}
+        .clearfix {*zoom: 1;}
+    </style>
+    <link rel="stylesheet" href="css/percircle.css">
+</head>
 
-    <body>
+<body>
+    <div class="page">
+        <h1>percircle</h1>
+        
+        <h2>Color variants</h2>
+        <!-- some colors -->
+        <div class="clearfix">
+            <div id="bluecircle" data-percent="17" class="c100 big">
+            </div>
+            <div id="orangecircle" data-percent="37" class="c100 orange">
+            </div>
+            <div id="greencircle" data-percent="94" class="c100 small green">
+            </div>
+        </div>
+        <!-- /some colors -->
+        
+        <h2>Custom text</h2>
+        <!-- custom text -->
+        <div class="clearfix">
+            <div id="pinkcircle" data-text="loading" data-percent="65" class="c100 pink big"></div>
+            <div id="bluecircle" data-text="done" data-percent="18" class="c100 red"></div>
+        </div>
+        <!-- /custom text  -->
 
-        <div class="page">
-            <h1>percircle</h1>
-
+        <h2>Dark theme</h2>
+        <div class="dark-area clearfix">
             <!-- some colors -->
             <div class="clearfix">
-                <div id="bluecircle" class="c100 p17 big">
-                    <span>17%</span>
-                    <div class="slice">
-                        <div class="bar"></div>
-                        <div class="fill"></div>
-                    </div>
-                </div>
-				<div id="orangecircle" class="c100 p60 orange">
-                    <span>60%</span>
-                    <div class="slice">
-                        <div class="bar"></div>
-                        <div class="fill"></div>
-                    </div>
-                </div>
-				<div id="pinkcircle" class="c100 p94 small green">
-					<span>94%</span>
-					<div class="slice">
-						<div class="bar"></div>
-						<div class="fill"></div>
-					</div>
-				</div>
+                <div id="lightcircle" data-percent="77" class="c100 dark big"></div>
+                <div id="dgreencircle" data-percent="50" class="c100 dark green"></div>
+                <div id="sacircle" data-percent="33" class="c100 dark small pink"></div>
             </div>
             <!-- /some colors -->
-
-            <div class="dark-area clearfix">
-				<!-- some colors -->
-                <div class="clearfix">
-                    <div id="lightcircle" class="c100 p77 dark big">
-                        <span>77%</span>
-                        <div class="slice">
-                            <div class="bar"></div>
-                            <div class="fill"></div>
-                        </div>
-                    </div>
-                    <div id="dgreencircle" class="c100 p50 dark green">
-                        <span>50%</span>
-                        <div class="slice">
-                            <div class="bar"></div>
-                            <div class="fill"></div>
-                        </div>
-                    </div>
-                    <div id="sacircle" class="c100 p33 dark small pink">
-                        <span>33%</span>
-                        <div class="slice">
-                            <div class="bar"></div>
-                            <div class="fill"></div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /some colors -->
-				
-			</div><!-- /.dark-area -->
-			<small>Thodoris Bais | <a href="http://thodorisbais.blogspot.com.net">Blog</a></small>
-        </div>
-    </body>
+        </div><!-- /.dark-area -->
+        <small>Thodoris Bais | <a href="http://thodorisbais.blogspot.com.net">Blog</a></small>
+    </div>
+</body>
 </html>
