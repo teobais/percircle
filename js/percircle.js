@@ -1,11 +1,11 @@
 jQuery(document).ready(function () {
 
 	//Identify by data attribute
-  var dataPercircles = jQuery( "div[data-percircle]" );
+	var dataPercircles = jQuery( "div[data-percircle]" );
 	//Identify by id, ensuring we don't percircle divs identified above
 	var idPercircles = jQuery( "div[id$='circle']" ).not( "[data-percircle]" );
 
-  jQuery.each( dataPercircles, function(){
+	jQuery.each( dataPercircles, function(){
 		var percentage = $(this).data( "percircle" );
 		render( this, percentage )
 	});
