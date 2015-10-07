@@ -5,7 +5,9 @@ jQuery(document).ready(function () {
 
 	jQuery.each( dataPercircles, function(){
 		var percentage = jQuery( this ).data( "percircle" );
-		jQuery( this ).addClass( 'p' + percentage);
+    if( percentage > 50 ){
+			jQuery( this ).addClass( 'exceed' );
+		}
 		render( this, percentage )
 	});
 
