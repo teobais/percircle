@@ -29,7 +29,7 @@ Dark circles:
 ###### Make sure each percircle's id ends with "circle".
 Big blue circle marked with a percent of 50%:
 ```html
-<div id="bluecircle" class="c100 p50 big">
+<div data-percircle="50" class="c100 big">
     <span>50%</span>
     <div class="slice">
         <div class="bar"></div>
@@ -44,7 +44,7 @@ Big blue circle marked with a percent of 50%:
 
 Default orange circle marked with a percent of 65%:
 ```html
-<div id="orangecircle" class="c100 p65 orange">
+<div data-percircle="65" class="c100 orange">
     <span>65%</span>
     <div class="slice">
         <div class="bar"></div>
@@ -57,9 +57,9 @@ Default orange circle marked with a percent of 65%:
 </p>
 <hr>
 
-Default orange circle marked with a percent of 65%:
+Small pink circle marked with a percent of 82%:
 ```html
-<div id="pinkcircle" class="c100 p82 small pink">
+<div data-percircle="82" class="c100 small pink">
     <span>82%</span>
     <div class="slice">
         <div class="bar"></div>
