@@ -26,7 +26,6 @@ Dark circles:
 ```
 
 #### Define the circle objects
-###### Make sure each percircle's id ends with "circle".
 Big blue circle marked with a percent of 50%:
 ```html
 <div data-percircle="50" class="c100 big">
