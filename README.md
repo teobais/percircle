@@ -75,10 +75,7 @@ Small pink circle marked with a percent of 82%:
 #Contribute
 Feel free to submit a pull request for the <a href="https://github.com/toubou91/percircle/issues" target="_blank">existing</a> issues or even introduce bugs/enhancements by opening a <a href="https://github.com/toubou91/percircle/issues/new" target="_blank">new</a> issue.
 
-#Credits and More
+#Credits
 The original project was created from <a href="http://circle.firchow.net/" target="_blank">Andre Firchow</a> and as I didn't find any similar here, I uploaded it.
 
 However, the project loaded all the css transformations, in the <code>percircle.css</code> file. Now, it makes use of the <a href="https://api.jquery.com/category/selectors/" target="_blank">jQuery selectors</a> in order to do so.
-
-In addition, by defining a <b>percircle</b> item for once (that is, by providing a div id, ending with "circle"), all the similar occurences of the specified percentage will be updated, without the need of defining a div id for the corresponding items. This means that if there are three "50%" percircles, only one of them could specify an id ending with "circle".
-
