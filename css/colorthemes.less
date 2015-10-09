@@ -1,0 +1,65 @@
+.percircle
+{
+    @default-color-dark:#555;
+    @default-bar-color-dark: #c6ff00;
+    @default-fill-color-dark: #777;
+    
+    .colortheme(@lightcolor, @darkcolor){
+        .bar, .fill {
+          border-color: @lightcolor;
+        }
+        &:hover > span {
+          color: @lightcolor;
+        }
+        &.dark .bar, &.dark .fill {
+          border-color: @darkcolor;
+        }
+        &.dark:hover > span {
+          color: @darkcolor;
+        }
+    }
+
+    &.dark {
+        background-color: @default-fill-color-dark;
+         .bar, .fill {
+             border-color:@default-bar-color-dark;
+         }
+         > span {
+            color: @default-fill-color-dark;
+        }
+        &:after {
+            background-color: @default-color-dark;
+        }
+        &:hover > span {
+            color: @default-bar-color-dark;
+        }
+    }
+
+    &.red {
+        .colortheme(#dd5454, #f84a4a);
+    }
+
+    &.blue {
+        .colortheme(#82cefa, #20cceb);
+    }
+    
+    &.green {
+        .colortheme(#8dea7b, #a9ff3a);
+    }   
+        
+    &.orange{
+         .colortheme(#e88239, #dc5b00);
+    }
+
+    &.pink {
+        .colortheme(#ff8ed0, #ff58b9);
+    }
+         
+    &.purple {
+        .colortheme(#aa7eff, #7a38f7);
+    }
+         
+    &.yellow{
+         .colortheme(#dcbd00, #ffdb00);
+    }
+}
