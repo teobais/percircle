@@ -72,8 +72,8 @@ Small pink circle marked with a percent of 82%:
 </p>
 
 #TODO
-* Update <code>README.md</code> according to <a href="https://github.com/toubou91/percircle/pull/10 target="_blank">#10</a>.
-* Close all pending <a href="https://github.com/toubou91/percircle/issues" target="_blank">issues</a> that are now resolved with <a href="https://github.com/toubou91/percircle/pull/10 target="_blank">#10</a>.
+* Update <code>README.md</code> according to <a href="https://github.com/toubou91/percircle/pull/10" target="_blank">#10</a>.
+* Close all pending <a href="https://github.com/toubou91/percircle/issues" target="_blank">issues</a> that are now resolved with <a href="https://github.com/toubou91/percircle/pull/10" target="_blank">#10</a>.
 
 #Contribute
 Feel free to submit a pull request for the <a href="https://github.com/toubou91/percircle/issues" target="_blank">existing</a> issues or even introduce bugs/enhancements by opening a <a href="https://github.com/toubou91/percircle/issues/new" target="_blank">new</a> issue.
