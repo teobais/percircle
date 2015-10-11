@@ -1,5 +1,6 @@
 # percircle
-> CSS Percentage Circle
+> CSS Percentage Circle<br/><br/><hr/>
+<i>I'm currently kinda busy with my thesis, so, the <code>TODO</code> section will remain here on top, till end of the month. This means that I will come back on active development on November, but obviously, this is not restrictive for anyone who would like contributing in any way.</i><hr/>
 #TODO
 >* Update <code>README.md</code> (sections Demo, Usage, Credits) according to <a href="https://github.com/toubou91/percircle/pull/10" target="_blank">#10</a>.
 * Close all pending <a href="https://github.com/toubou91/percircle/issues" target="_blank">issues</a> that are now resolved with <a href="https://github.com/toubou91/percircle/pull/10" target="_blank">#10</a>.
