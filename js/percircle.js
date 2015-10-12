@@ -19,10 +19,10 @@
             var perCircle = $(this);
             // add percircle class for styling
             if (!perCircle.hasClass('percircle')) perCircle.addClass('percircle');
-						// add divs for structure
+            // add divs for structure
             $('<div class="slice"><div class="bar"></div><div class="fill"></div></div>').appendTo(perCircle);
 
-						// apply options
+            // apply options
             if (typeof(perCircle.attr('data-animate')) !== 'undefined') options.animate = perCircle.attr('data-animate') == 'true';
             if (options.animate) perCircle.addClass('animate');
             var percent = perCircle.attr('data-percent') || options.percent || 0;
