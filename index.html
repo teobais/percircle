@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="js/percircle.js"></script>
-    
+
     <!-- styles for this little demo page -->
     <style type="text/css">
         body {
@@ -40,50 +40,50 @@
 <body>
     <div class="page">
         <h1>percircle</h1>
-        
+
         <h2>Color variants</h2>
         <!-- some colors -->
         <div class="clearfix">
             <div id="bluecircle" data-percent="17" class="big">
             </div>
-            <div id="orangecircle" data-percent="37" class="orange">
+            <div id="orangecircle" data-percent="57" data-border-color="#e88239" data-text-color="#e88239">
             </div>
-            <div id="greencircle" data-percent="94" class="small green">
+            <div id="greencircle" data-percent="94" class="small" data-border-color="#8dea7b" data-text-color="#8dea7b">
             </div>
         </div>
         <!-- /some colors -->
-        
-        <h2>Custom text</h2>
-        <!-- custom text -->
-        <div class="clearfix">
-            <div id="pinkcircle" data-text="work" data-percent="65" class="red big"></div>
-            <div id="bluecircle" data-text="rest" data-percent="87" class="purple"></div>
-            <div id="bluecircle" data-text="play" data-percent="30" class="small blue"></div>
-        </div>
-        <!-- /custom text  -->
 
         <h2>Dark theme</h2>
         <!-- .dark-area -->
         <div class="dark-area clearfix">
             <!-- some colors -->
             <div class="clearfix">
-                <div id="lightcircle" data-percent="77" class="dark big"></div>
-                <div id="dgreencircle" data-percent="50" class="dark blue"></div>
-                <div id="sacircle" data-percent="33" class="dark small pink"></div>
+                <div id="lightcircle" data-percent="77" class="big" data-background-color="#555"></div>
+                <div id="orangecircle" data-percent="57" data-border-color="#e88239" data-text-color="#e88239" data-background-color="#555"></div>
+                <div id="sacircle" data-percent="33" class="small" data-background-color="#555" data-border-color="#ff8ed0" data-text-color="#ff8ed0"></div>
             </div>
             <!-- /some colors -->
         </div>
-        
+
+        <h2>Custom text</h2>
+        <!-- custom text -->
+        <div class="clearfix">
+            <div id="pinkcircle" data-text="work" data-percent="65" class="big" data-border-color="#f84a4a" data-text-color="#f84a4a"></div>
+            <div id="bluecircle" data-text="rest" data-percent="87" data-border-color="#aa7eff" data-text-color="#aa7eff"></div>
+            <div id="bluecircle" data-text="play" data-percent="30" class="small" data-border-color="#307bbb" data-text-color="#307bbb"></div>
+        </div>
+        <!-- /custom text  -->
+
         <h2>Animation off</h2>
         <!-- .animation-off -->
         <div class="dark-area clearfix">
             <!-- some colors -->
             <div class="clearfix">
-                <div id="redcircle" data-percent="43" data-animate="false" class="dark red big"></div>
+                <div id="redcircle" data-percent="43" data-animate="false" class="big" data-background-color="#f5f5f5"></div>
             </div>
             <!-- /some colors -->
         </div><!-- /.animation-off -->
-        
+
         <h2>Custom options</h2>
         <div class="clearfix">
             <!-- custom options -->
@@ -92,22 +92,28 @@
             </div>
             <pre>
     $("#custom").perCircle({
-        text:"custom",
-        percent: 27
+        text: "custom",
+        percent: 27,
+        borderColor: '#dcbd00',
+        textColor: '#dcbd00',
+        backgroundColor: '#eef'
     });
             </pre>
             <!-- /custom options -->
         </div>
-        
+
         <small>Thodoris Bais | <a href="http://thodorisbais.blogspot.com.net">Blog</a></small>
     </div>
-    
+
     <script type="text/javascript">
         $(function(){
             $("[id$='circle']").perCircle();
             $("#custom").perCircle({
                 text:"custom",
-                percent: 27
+                percent: 27,
+                borderColor: '#dcbd00',
+                textColor: '#dcbd00',
+                backgroundColor: '#eef'
             });
         });
     </script>
