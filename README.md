@@ -2,14 +2,19 @@
 > CSS Percentage Circle
 
 #Demo
-Default circles:
-<p align="center">
-  <img  src="_img/light_circles.gif" alt="Sample circles" />
-</p>
-
 Dark circles:
 <p align="center">
   <img  src="_img/dark_circles.gif" alt="Dark circles" />
+</p>
+
+Custom circles:
+<p align="center">
+  <img  src="_img/custom_three.gif" alt="Custom circles" />
+</p>
+
+Default circles:
+<p align="center">
+  <img  src="_img/light_circles.gif" alt="Sample circles" />
 </p>
 
 #Usage
