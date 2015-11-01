@@ -67,7 +67,7 @@ Big red dark circle, 43% filled, without animation:
   <img  src="_img/animation_off.gif" alt="Animation off" />
 </p>
 <hr>
-####3. Let the script get the done
+####3. Let the script get the job done
 ```html
 <script type="text/javascript">
     $(function(){
