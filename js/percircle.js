@@ -27,11 +27,11 @@
             $('<div class="slice"><div class="bar"></div><div class="fill"></div></div>').appendTo(perCircle);
             if (percent > 50)
             $('.bar', perCircle).css({
-              '-webkit-transform' : 'rotate(' + 180 + 'deg)',
-              '-moz-transform'    : 'rotate(' + 180 + 'deg)',
-              '-ms-transform'     : 'rotate(' + 180 + 'deg)',
-              '-o-transform'      : 'rotate(' + 180 + 'deg)',
-              'transform'         : 'rotate(' + 180 + 'deg)'
+              '-webkit-transform' : 'rotate(180deg)',
+              '-moz-transform'    : 'rotate(180deg)',
+              '-ms-transform'     : 'rotate(180deg)',
+              '-o-transform'      : 'rotate(180deg)',
+              'transform'         : 'rotate(180deg)'
             });
             var rotationDegrees = rotationMultiplier * percent;
             // set timeout causes the animation to be visible on load
