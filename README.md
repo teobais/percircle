@@ -102,9 +102,9 @@ Big red dark circle, 43% filled, without animation:
 <hr>
 
 #TODO
-* Resolve <a href="https://github.com/toubou91/percircle/pull/17">#17</a>
-* ~~Update <code>README.md</code> (sections Demo, Usage, Credits) according to <a href="https://github.com/toubou91/percircle/pull/10" target="_blank">#10</a>.~~
-* ~~Close all pending <a href="https://github.com/toubou91/percircle/issues" target="_blank">issues</a> that are now resolved with <a href="https://github.com/toubou91/percircle/pull/10" target="_blank">#10</a>.~~
+- [ ] Resolve <a href="https://github.com/toubou91/percircle/pull/17">#17</a>
+- [x] Update <code>README.md</code> (sections Demo, Usage, Credits) according to <a href="https://github.com/toubou91/percircle/pull/10" target="_blank">#10</a>.~~
+- [x] Close all pending <a href="https://github.com/toubou91/percircle/issues" target="_blank">issues</a> that are now resolved with <a href="https://github.com/toubou91/percircle/pull/10" target="_blank">#10</a>.~~
 
 #Contribute
 Feel free to submit a pull request for the <a href="https://github.com/toubou91/percircle/issues" target="_blank">existing</a> issues or even introduce bugs/enhancements by opening a <a href="https://github.com/toubou91/percircle/issues/new" target="_blank">new</a> issue.
