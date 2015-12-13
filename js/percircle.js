@@ -2,8 +2,7 @@
     $.fn.percircle = function(options) {
         // default options
         var defaultOptions = {
-            animate: true,
-            perclock: false
+            animate: true
         };
         
         // extend with any provided options
