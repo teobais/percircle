@@ -19,8 +19,9 @@
             // apply options
             if (typeof(percircle.attr('data-animate')) !== 'undefined') options.animate = percircle.attr('data-animate') == 'true';
             if (options.animate) percircle.addClass('animate');
-            if (typeof(percircle.attr('data-perclock')) !== 'undefined') options.perclock = percircle.attr('data-perclock') == 'false';
-            if (options.perclock) percircle.addClass('percircle');
+            
+            //if (typeof(percircle.attr('data-perclock')) !== 'undefined') options.perclock = percircle.attr('data-perclock') =='false';
+            
             var percent = percircle.attr('data-percent') || options.percent || 0;
             var perclock = percircle.attr('data-perclock') || options.perclock || 0;
             if (!perclock) {
