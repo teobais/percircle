@@ -1,8 +1,9 @@
 (function($) {
-    $.fn.perCircle = function(options) {
+    $.fn.percircle = function(options) {
         // default options
         var defaultOptions = {
-            animate: true
+            animate: true,
+            perclock: false
         };
         
         // extend with any provided options
@@ -13,20 +14,24 @@
         
         // for each element matching selector
         return this.each(function(){
-            var perCircle = $(this);
+            var percircle = $(this);
             // add percircle class for styling
-            if (!perCircle.hasClass('percircle')) perCircle.addClass('percircle');
+            if (!percircle.hasClass('percircle')) percircle.addClass('percircle');
             // apply options
-            if (typeof(perCircle.attr('data-animate')) !== 'undefined') options.animate = perCircle.attr('data-animate') == 'true';
-            if (options.animate) perCircle.addClass('animate');
-            var percent = perCircle.attr('data-percent') || options.percent || 0;
-            if (percent > 50) perCircle.addClass('gt50');
-            var text = perCircle.attr('data-text') || options.text || percent + '%';
-            $('<span>'+text+'</span>').appendTo(perCircle);
+            if (typeof(percircle.attr('data-animate')) !== 'undefined') options.animate = percircle.attr('data-animate') == 'true';
+            if (options.animate) percircle.addClass('animate');
+            if (typeof(percircle.attr('data-perclock')) !== 'undefined') options.perclock = percircle.attr('data-perclock') == 'false';
+            if (options.perclock) percircle.addClass('percircle');
+            var percent = percircle.attr('data-percent') || options.percent || 0;
+            var perclock = percircle.attr('data-perclock') || options.perclock || 0;
+            if (!perclock) {
+            if (percent > 50) percircle.addClass('gt50');
+            var text = percircle.attr('data-text') || options.text || percent + '%';
+            $('<span>'+text+'</span>').appendTo(percircle);
             // add divs for structure
-            $('<div class="slice"><div class="bar"></div><div class="fill"></div></div>').appendTo(perCircle);
+            $('<div class="slice"><div class="bar"></div><div class="fill"></div></div>').appendTo(percircle);
             if (percent > 50)
-            $('.bar', perCircle).css({
+            $('.bar', percircle).css({
               '-webkit-transform' : 'rotate(180deg)',
               '-moz-transform'    : 'rotate(180deg)',
               '-ms-transform'     : 'rotate(180deg)',
@@ -36,7 +41,7 @@
             var rotationDegrees = rotationMultiplier * percent;
             // set timeout causes the animation to be visible on load
             setTimeout(function(){
-                $('.bar', perCircle).css({
+                $('.bar', percircle).css({
                   '-webkit-transform' : 'rotate(' + rotationDegrees + 'deg)',
                   '-moz-transform'    : 'rotate(' + rotationDegrees + 'deg)',
                   '-ms-transform'     : 'rotate(' + rotationDegrees + 'deg)',
@@ -44,6 +49,42 @@
                   'transform'         : 'rotate(' + rotationDegrees + 'deg)'
                 });
             }, 0);
+        } else {
+            
+            
+            
+            setInterval(function(){ 
+                var d = new Date(); //without params it defaults to "now"
+                var text = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+                
+                $('<span>'+text+'</span>').appendTo(percircle);
+                // add divs for structure
+                $('<div class="slice"><div class="bar"></div><div class="fill"></div></div>').appendTo(percircle);
+                
+                //$("#custom").text(t); 
+                var percent = d.getSeconds();
+                if (percent > 50) percircle.addClass('gt50');
+            
+           
+                if (percent > 50)
+                $('.bar', percircle).css({
+                  '-webkit-transform' : 'rotate(180deg)',
+                  '-moz-transform'    : 'rotate(180deg)',
+                  '-ms-transform'     : 'rotate(180deg)',
+                  '-o-transform'      : 'rotate(180deg)',
+                  'transform'         : 'rotate(180deg)'
+                });
+                var rotationDegrees = rotationMultiplier * percent;
+                $('.bar', percircle).css({
+                  '-webkit-transform' : 'rotate(' + rotationDegrees + 'deg)',
+                  '-moz-transform'    : 'rotate(' + rotationDegrees + 'deg)',
+                  '-ms-transform'     : 'rotate(' + rotationDegrees + 'deg)',
+                  '-o-transform'      : 'rotate(' + rotationDegrees + 'deg)',
+                  'transform'         : 'rotate(' + rotationDegrees + 'deg)'
+                });
+                }
+            , 1000);
+        }
         });
     };
 })(jQuery);
