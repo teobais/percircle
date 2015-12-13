@@ -76,7 +76,7 @@ Big red dark circle, 43% filled, without animation:
 ```html
 <script type="text/javascript">
     $(function(){
-        $("[id$='circle']").perCircle();
+        $("[id$='circle']").percircle();
     });
 </script>
 ```
@@ -93,7 +93,7 @@ Big red dark circle, 43% filled, without animation:
 
 ```html
 <script type="text/javascript">
-    $("#custom").perCircle({
+    $("#custom").percircle({
         text:"custom",
         percent: 27
     });
