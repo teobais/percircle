@@ -50,6 +50,8 @@
                     });
                 }, 0);
             } else {
+                if (!percircle.hasClass('perclock')) percircle.addClass('perclock');
+                
                 var getPadded = function(val){
                     return val < 10 ? ('0' + val) : val;
                 };

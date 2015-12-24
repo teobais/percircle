@@ -85,16 +85,16 @@
         </div><!-- /.animation-off -->
         
         <h2>Custom options</h2>
-        <div class="clearfix">
             <!-- custom options -->
             <div class="clearfix">
-                <div id="custom" class="yellow big"></div>
+                <div id="custom" class="yellow big"></div> 
+                <div id="clock" class="perclock purple big"></div>
             </div>
             <pre>
-    $("#custom").percircle({
-        text:"custom",
-        percent: 27
-    });
+    $("#custom").percircle({         $("#clock").percircle({
+        text:"custom",                   perclock: true
+        percent: 27                  });
+    }); 
             </pre>
             <!-- /custom options -->
         </div>
@@ -103,15 +103,18 @@
     </div>
     
     <script type="text/javascript">
-        $(function(){
-            
-            
+        $(function(){ 
             $("[id$='circle']").percircle();
-            $("#custom").percircle({
+            
+            $("#clock").percircle({
                 perclock: true
             });
+            
+            $("#custom").percircle({
+                text:"custom",
+                percent: 27
+            });
         });
-        
     </script>
 </body>
 </html>
