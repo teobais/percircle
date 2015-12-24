@@ -208,6 +208,11 @@
   text-align: center;
   white-space: nowrap;
 }
+
+.perclock > span {
+  font-size: 0.175em;
+}
+
 .percircle:after {
   position: absolute;
   top: 0.08em;
