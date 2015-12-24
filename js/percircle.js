@@ -52,12 +52,8 @@
             } else {
                 if (!percircle.hasClass('perclock')) percircle.addClass('perclock');
                 
-                var getPadded = function(val){
-                    return val < 10 ? ('0' + val) : val;
-                };
-                
                 setInterval(function(){ 
-                    var d = new Date(); //without params it defaults to "now"
+                    var d = new Date(); // without params it defaults to "now"
                     var text = getPadded(d.getHours()) + ":" + getPadded(d.getMinutes()) + ":" + getPadded(d.getSeconds());
                     
                     percircle.html('<span>'+text+'</span>');
@@ -77,7 +73,7 @@
                         });
                     }
                     
-                    var rotationDegrees = 6 * seconds;
+                    var rotationDegrees = 6 * seconds;  // temporary clockwise rotation value
                     $('.bar', percircle).css({
                       '-webkit-transform' : 'rotate(' + rotationDegrees + 'deg)',
                       '-moz-transform'    : 'rotate(' + rotationDegrees + 'deg)',
@@ -87,6 +83,11 @@
                     });
                 }, 1000);
             }
+            
+            // display a presentable format of current time
+            var getPadded = function(val){
+                return val < 10 ? ('0' + val) : val;
+            };
         });
     };
 })(jQuery);
