@@ -91,20 +91,6 @@ Big red dark circle, 43% filled, without animation:
   <img  src="_img/custom.gif" alt="Custom" />
 </p>
 
-```html
-<script type="text/javascript">
-    $(function(){ 
-      $("#clock").percircle({
-          perclock: true
-      });
-      
-      $("#custom").percircle({
-          text:"custom",
-          percent: 27
-      });
-  });
-</script>
-```
 <hr>
 
 #TODO
