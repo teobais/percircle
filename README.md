@@ -1,5 +1,5 @@
 # percircle
-> CSS percentage circle built with jQuery selectors
+> CSS percentage circle built with jQuery
 
 #Demo
 Dark circles:
@@ -104,4 +104,4 @@ Feel free to submit a pull request for the <a href="https://github.com/toubou91/
 #Credits
 The original project was created from <a href="http://circle.firchow.net/" target="_blank">Andre Firchow</a> and as I didn't find any similar here, I uploaded it.
 
-However, the project loaded all the css transformations, in the <code>percircle.css</code> file. Now, it makes use of the <a href="https://api.jquery.com/category/selectors/" target="_blank">jQuery selectors</a> in order to do so.
+However, the project loaded all the css transformations, in the <code>percircle.css</code> file. Now, it uses jQuery to apply repeated functionality where needed.
