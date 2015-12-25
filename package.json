@@ -7,6 +7,9 @@
     "type": "git",
     "url": "git+https://github.com/toubou91/percircle.git"
   },
+  "dependencies": {
+    "jquery": ">= 2.1.4"
+  },
   "keywords": [
     "jquery-plugin",
     "ecosystem:jquery",
