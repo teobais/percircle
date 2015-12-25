@@ -1,6 +1,6 @@
 {
   "name": "percircle",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Percircle: the jQuery percentage circle.",
   "main": "js/percircle.js",
   "repository": {
