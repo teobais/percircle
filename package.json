@@ -1,0 +1,27 @@
+{
+  "name": "percircle",
+  "version": "1.0.1",
+  "description": "Percircle: the jQuery percentage circle.",
+  "main": "js/percircle.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toubou91/percircle.git"
+  },
+  "keywords": [
+    "jquery-plugin",
+    "ecosystem:jquery",
+    "percentage",
+    "circle",
+    "ui"
+  ],
+  "author": {
+    "name": "Thodoris Bais",
+    "email": "thodoris.bais@gmail.com",
+    "url": "http://thodorisbais.com/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/toubou91/percircle/issues"
+  },
+  "homepage": "https://github.com/toubou91/percircle#readme"
+}
