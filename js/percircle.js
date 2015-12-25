@@ -10,8 +10,7 @@
     else { // Browser
         factory(jQuery);
     }
-});
-(function($, undefined) {
+}) (function($, undefined) {
     "use strict";
 
     $.fn.percircle = function(options) {
@@ -105,4 +104,4 @@
             };
         });
     };
-})(jQuery);
+});
