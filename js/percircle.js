@@ -1,4 +1,17 @@
-(function($) {
+(function (factory) {
+    "use strict";
+
+    if (typeof define === 'function' && define.amd) { // AMD
+        define(['jquery'], factory);
+    }
+    else if (typeof exports == "object" && typeof module == "object") { // CommonJS
+        module.exports = factory(require('jquery'));
+    }
+    else { // Browser
+        factory(jQuery);
+    }
+});(function($, undefined) {
+    "use strict";
     $.fn.percircle = function(options) {
         // default options
         var defaultOptions = {

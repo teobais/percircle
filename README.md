@@ -1,5 +1,5 @@
 # percircle
-> CSS Percentage Circle
+> The jQuery percentage circle
 
 #Demo
 Dark circles:
