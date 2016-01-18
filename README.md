@@ -18,6 +18,11 @@ Default circles:
 </p>
 
 #Usage
+####0. Install locally
+```
+npm install percircle
+```
+
 ####1. Load the module to your page
 ```html
 <!DOCTYPE HTML>
