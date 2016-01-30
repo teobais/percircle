@@ -5,11 +5,9 @@
   "main": "js/percircle.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/toubou91/percircle.git"
+    "url": "https://github.com/toubou91/percircle.git"
   },
-  "dependencies": {
-    "jquery": ">= 2.1.4"
-  },
+  "dependencies": {},
   "keywords": [
     "jquery-plugin",
     "ecosystem:jquery",
