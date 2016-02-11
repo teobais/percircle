@@ -21,6 +21,7 @@ Default circles:
 ####0. Install locally
 ```
 npm install percircle
+bower install
 ```
 
 ####1. Load the module to your page
