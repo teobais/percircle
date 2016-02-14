@@ -1,4 +1,3 @@
-// include gulp
 var gulp = require('gulp'); 
     jshint = require('gulp-jshint'),
     stylish = require('jshint-stylish'),
@@ -8,7 +7,6 @@ var gulp = require('gulp');
     uglify = require('gulp-uglify');
 require('gulp-stats')(gulp);
     
-// Clean
 gulp.task('clean', function() {
     return del(['dist']);
 });
@@ -24,7 +22,6 @@ gulp.task('js', ['clean'], function() {
     .pipe(jshint())
     .pipe(uglify())
     .pipe(gulp.dest('dist/js'));
-    //.pipe(jshint.reporter(stylish));
 });
 
 gulp.task('css', ['clean'], function() {

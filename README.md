@@ -18,20 +18,14 @@ Default circles:
 </p>
 
 #Usage
-####0. Install locally
-```
-npm install percircle
-bower install
-```
-
 ####1. Load the module to your page
 ```html
 <!DOCTYPE HTML>
 <html>
 <head>
-  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-  <script type="text/javascript" src="js/percircle.js"></script>
-  <link rel="stylesheet" href="css/percircle.css">
+  <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="../dist/js/percircle.js"></script>
+  <link rel="stylesheet" href="../dist/css/percircle.css">
 </head>
 </html>
 ```
@@ -99,7 +93,34 @@ Big red dark circle, 43% filled, without animation:
 
 <hr>
 
+###npm
+Percircle is registered as an npm package and can be installed with:
+```
+npm install percircle
+```
+
+###Bower
+Percircle is also registered as a Bower package, so it can be pulled down using:
+```
+bower install percircle
+```
+
+### Building Percircle Locally
+
+If you'd like to run the development version, `percirle` uses Gulp to automate basic tasks, like building.  Head over to https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md for more information.  First, clone the repository, then run:
+
+    npm install -g gulp
+    npm install
+
+    # Watches the js files for changes, while linting them concurrently 
+    gulp watch
+
+    # Runs jshint and builds a minified version of the files.
+    gulp
+
+
 #TODO
+- [ ] Configure Gulp with [livereload](https://www.npmjs.com/package/gulp-livereload) and also to `watch` for css changes.
 - [ ] Resolve <a href="https://github.com/toubou91/percircle/pull/17">#17</a>
 - [x] Update <code>README.md</code> (sections Demo, Usage, Credits) according to <a href="https://github.com/toubou91/percircle/pull/10" target="_blank">#10</a>.~~
 - [x] Close all pending <a href="https://github.com/toubou91/percircle/issues" target="_blank">issues</a> that are now resolved with <a href="https://github.com/toubou91/percircle/pull/10" target="_blank">#10</a>.~~
