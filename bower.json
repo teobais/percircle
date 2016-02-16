@@ -1,7 +1,7 @@
 {
   "name": "percircle",
   "description": "CSS percentage circle built with jQuery selectors.",
-  "main": "js/percircle.js",
+  "main": "dist/js/percircle.js",
   "authors": [
     "Thodoris Bais"
   ],

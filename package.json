@@ -2,12 +2,11 @@
   "name": "percircle",
   "version": "1.0.8",
   "description": "CSS percentage circle built with jQuery selectors.",
-  "main": "js/percircle.js",
+  "main": "dist/js/percircle.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/toubou91/percircle.git"
   },
-  "dependencies": {},
   "keywords": [
     "jquery-plugin",
     "ecosystem:jquery",
