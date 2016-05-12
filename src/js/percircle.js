@@ -24,26 +24,42 @@
         $.extend(options, defaultOptions);
         
         var rotationMultiplier = 3.6;
-        
+
+
         // for each element matching selector
         return this.each(function(){
             var percircle = $(this);
+            var progressBarColor = '';
+
             // add percircle class for styling
             if (!percircle.hasClass('percircle')) percircle.addClass('percircle');
             // apply options
             if (typeof(percircle.attr('data-animate')) !== 'undefined') options.animate = percircle.attr('data-animate') == 'true';
             if (options.animate) percircle.addClass('animate');
             
-            //if (typeof(percircle.attr('data-perclock')) !== 'undefined') options.perclock = percircle.attr('data-perclock') =='false';
+            if (typeof(percircle.attr('data-color')) !== 'undefined') {
+                options.progressBarColor = percircle.attr('data-color');
+                progressBarColor = "style='border-color: "+ options.progressBarColor +"'";
+
+                // Change color text the same with progress bar color
+                percircle.on('mouseover', function(){
+                    $(this).children('span').css('color', options.progressBarColor);
+                });
+
+                percircle.on('mouseleave', function(){
+                    $(this).children('span').attr('style', '');
+                });
+            }
             
             var percent = percircle.attr('data-percent') || options.percent || 0;
             var perclock = percircle.attr('data-perclock') || options.perclock || 0;
             if (!perclock) {
                 if (percent > 50) percircle.addClass('gt50');
                 var text = percircle.attr('data-text') || options.text || percent + '%';
+
                 $('<span>'+text+'</span>').appendTo(percircle);
                 // add divs for structure
-                $('<div class="slice"><div class="bar"></div><div class="fill"></div></div>').appendTo(percircle);
+                $('<div class="slice"><div class="bar" '+progressBarColor+'></div><div class="fill" '+progressBarColor+'></div></div>').appendTo(percircle);
                 if (percent > 50)
                 $('.bar', percircle).css({
                   '-webkit-transform' : 'rotate(180deg)',
@@ -72,7 +88,7 @@
                     
                     percircle.html('<span>'+text+'</span>');
                     // add divs for structure
-                    $('<div class="slice"><div class="bar"></div><div class="fill"></div></div>').appendTo(percircle);
+                    $('<div class="slice"><div class="bar" '+progressBarColor+'></div><div class="fill" '+progressBarColor+'></div></div>').appendTo(percircle);
                     
                     var seconds = d.getSeconds();
                     if (seconds === 0) percircle.removeClass('gt50');
@@ -102,6 +118,7 @@
             var getPadded = function(val){
                 return val < 10 ? ('0' + val) : val;
             };
+
         });
     };
 });
