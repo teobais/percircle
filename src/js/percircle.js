@@ -25,11 +25,22 @@
         
         var rotationMultiplier = 3.6;
 
-
         // for each element matching selector
         return this.each(function(){
             var percircle = $(this);
             var progressBarColor = '';
+
+            // When user try to custom progress bar color, should be update color text as well.
+            var changeTextColor = function (context, color) {
+              // Change color text the same with progress bar color
+              percircle.on('mouseover', function(){
+                context.children('span').css('color', color);
+              });
+
+              percircle.on('mouseleave', function(){
+                context.children('span').attr('style', '');
+              });
+            };
 
             // add percircle class for styling
             if (!percircle.hasClass('percircle')) percircle.addClass('percircle');
@@ -40,17 +51,14 @@
             if (typeof(percircle.attr('data-color')) !== 'undefined') {
                 options.progressBarColor = percircle.attr('data-color');
                 progressBarColor = "style='border-color: "+ options.progressBarColor +"'";
-
-                // Change color text the same with progress bar color
-                percircle.on('mouseover', function(){
-                    $(this).children('span').css('color', options.progressBarColor);
-                });
-
-                percircle.on('mouseleave', function(){
-                    $(this).children('span').attr('style', '');
-                });
+                changeTextColor($(this), options.progressBarColor);
+            } else {
+                if (typeof options.progressBarColor !== 'undefined'){
+                    progressBarColor = "style='border-color: "+ options.progressBarColor +"'";
+                    changeTextColor($(this), options.progressBarColor);
+                }
             }
-            
+
             var percent = percircle.attr('data-percent') || options.percent || 0;
             var perclock = percircle.attr('data-perclock') || options.perclock || 0;
             if (!perclock) {
