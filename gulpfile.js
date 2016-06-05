@@ -3,8 +3,11 @@ var gulp = require('gulp');
     stylish = require('jshint-stylish'),
     watch = require('gulp-watch'),
     cssnano = require('gulp-cssnano'),
+    rtlcss = require('gulp-rtlcss'),
     del = require('del'),
-    uglify = require('gulp-uglify');
+    uglify = require('gulp-uglify'),
+    rename = require('gulp-rename');
+
 require('gulp-stats')(gulp);
     
 gulp.task('clean', function() {
@@ -27,6 +30,10 @@ gulp.task('js', ['clean'], function() {
 gulp.task('css', ['clean'], function() {
    return gulp.src('src/css/**/*.css')
     .pipe(cssnano())
+    .pipe(gulp.dest('dist/css'))
+    
+    .pipe(rtlcss())
+    .pipe(rename({ suffix: '-rtl' }))
     .pipe(gulp.dest('dist/css'));
 });
 
