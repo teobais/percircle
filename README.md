@@ -86,25 +86,11 @@ Big red dark circle, 43% filled, without animation:
 ```html
 <div id="custom" class="yellow big"></div> 
 <div id="clock" class="purple big"></div>
+<div id="custom-pb-color" class="big"></div>
 ```
 <p align="center">
   <img  src="_img/custom.gif" alt="Custom" />
 </p>
-
-### Config progress bar color
-```html
-<div id="custom-progress-color" data-percent="43" data-animate="true" data-color="green" class="red big">
-</div>
-or
-<script type="text/javascript">
-    $(function(){
-        $("[id$='circle']").percircle({
-            progressBarColor: "green"
-        });
-    });
-</script>
-```
-
 <hr>
 
 ###npm

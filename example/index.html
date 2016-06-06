@@ -68,20 +68,17 @@
             <div class="clearfix">
                 <div id="custom" class="yellow big"></div> 
                 <div id="clock" class="purple big"></div>
+				<div id="custom-pb-color" class="big"></div>
             </div>
             <pre>
-    $("#custom").percircle({         $("#clock").percircle({
-        text:"custom",                   perclock: true
-        percent: 27                  });
-    }); 
+    $("#custom").percircle({             $("#clock").percircle({             $("#custom-pb-color").percircle({
+        text:"custom",                       perclock: true                      progressBarColor: "#CC3366",      
+        percent: 27                      });                                     percent: 64         
+    });                                                                      }); 
             </pre>
             <!-- /custom options -->
         </div>
 
-    <h2>Custom Progress Background</h2>
-    <div class="clearfix">
-        <div id="custom-circle" data-percent="43" data-animate="true" data-color="green" class="big"></div>
-    </div>
         <small>Thodoris Bais | <a href="http://thodorisbais.blogspot.com">Blog</a></small>
     </div>
     
@@ -97,6 +94,10 @@
                 text:"custom",
                 percent: 27
             });
+			$("#custom-pb-color").percircle({
+				progressBarColor: "#CC3366",
+				percent: 64
+			});
         });
     </script>
 </body>
