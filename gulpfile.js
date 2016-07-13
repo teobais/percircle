@@ -31,7 +31,9 @@ gulp.task('css', ['clean'], function() {
    return gulp.src('src/css/**/*.css')
     .pipe(cssnano())
     .pipe(gulp.dest('dist/css'))
-    
+	// Till this point, we've only managed to minimize the css.
+	
+	// Now, take the minimized css and also generate an rtl version of it.
     .pipe(rtlcss())
     .pipe(rename({ suffix: '-rtl' }))
     .pipe(gulp.dest('dist/css'));

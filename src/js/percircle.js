@@ -30,7 +30,7 @@
             var percircle = $(this);
             var progressBarColor = '';
 
-            // When user try to custom progress bar color, should be update color text as well.
+            // When user tries adding a custom progress bar color, the text color should be updated as well.
             var changeTextColor = function (context, color) {
               // Change color text the same with progress bar color
               percircle.on('mouseover', function(){
