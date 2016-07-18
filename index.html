@@ -8,12 +8,33 @@
     <title>percircle</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="../dist/js/percircle.js"></script>
+    <script src="./bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="./dist/js/percircle.js"></script>
     
-    <!-- styles for this little demo page -->
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="../dist/css/percircle.css">
+    <link rel="stylesheet" href="./dist/css/percircle.css">
+	<style>
+	body {
+		background-color: #f5f5f5;
+		margin: 0;
+		padding: 0;
+		font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	}
+	.page {
+		margin: 40px;
+	}
+	h1 {
+		margin: 40px 0 60px 0;
+	}
+	.clearfix:before, .clearfix:after { content: " "; display: table; }
+	.clearfix:after { clear: both; }
+	.clearfix { *zoom: 1; }
+	.dark-area {
+		background-color: #555;
+		padding: 40px;
+		margin: 0 -40px 20px -40px;
+	}
+	</style>
+	
 </head>
 
 <body>
@@ -68,14 +89,17 @@
             <div class="clearfix">
                 <div id="custom" class="yellow big"></div> 
                 <div id="clock" class="purple big"></div>
-				<div id="custom-pb-color" class="big"></div>
+				<div id="custom-color" class="big"></div>
+				<div id="countdown" class="big"></div>
             </div>
             <pre>
-    $("#custom").percircle({             $("#clock").percircle({             $("#custom-pb-color").percircle({
-        text:"custom",                       perclock: true                      progressBarColor: "#CC3366",      
-        percent: 27                      });                                     percent: 64         
-    });                                                                      }); 
-            </pre>
+    $("#custom").percircle({             $("#clock").percircle({            $("#custom-color").percircle({          $("#custom").percircle({                          
+        text:"custom",                       perclock: true                     progressBarColor: "#CC3366",            perdown: true,                        
+        percent: 27                      });                                    percent: 64                             secs: 54, 
+                                                                            });                                         timeUpText: 'finally!'
+                                                                                                                    });                       
+            
+			</pre>
             <!-- /custom options -->
         </div>
 
@@ -89,12 +113,18 @@
             $("#clock").percircle({
                 perclock: true
             });
+			
+			$("#countdown").percircle({
+                perdown: true,
+				secs: 14,
+				timeUpText: 'finally!'
+            });
             
             $("#custom").percircle({
                 text:"custom",
                 percent: 27
             });
-			$("#custom-pb-color").percircle({
+			$("#custom-color").percircle({
 				progressBarColor: "#CC3366",
 				percent: 64
 			});

@@ -61,7 +61,8 @@
 
             var percent = percircle.attr('data-percent') || options.percent || 0;
             var perclock = percircle.attr('data-perclock') || options.perclock || 0;
-            if (!perclock) {
+			var perdown = percircle.attr('data-perdown') || options.perdown || 0;
+            if (percent) {
                 if (percent > 50) percircle.addClass('gt50');
                 var text = percircle.attr('data-text') || options.text || percent + '%';
 
@@ -87,7 +88,7 @@
                       'transform'         : 'rotate(' + rotationDegrees + 'deg)'
                     });
                 }, 0);
-            } else {
+            } else if(perclock){
                 if (!percircle.hasClass('perclock')) percircle.addClass('perclock');
                 
                 setInterval(function(){ 
@@ -103,11 +104,11 @@
                     if (seconds > 30){
                         percircle.addClass('gt50');
                         $('.bar', percircle).css({
-                          '-webkit-transform' : 'rotate(180deg)',
-                          '-moz-transform'    : 'rotate(180deg)',
-                          '-ms-transform'     : 'rotate(180deg)',
-                          '-o-transform'      : 'rotate(180deg)',
-                          'transform'         : 'rotate(180deg)'
+                          '-webkit-transform' : 'rotate(180deg);scale(1,3)',
+                          '-moz-transform'    : 'rotate(180deg);scale(1,3)',
+                          '-ms-transform'     : 'rotate(180deg);scale(1,3)',
+                          '-o-transform'      : 'rotate(180deg);scale(1,3)',
+                          'transform'         : 'rotate(180deg);scale(1,3)'
                         });
                     }
                     
@@ -120,13 +121,47 @@
                       'transform'         : 'rotate(' + rotationDegrees + 'deg)'
                     });
                 }, 1000);
-            }
-            
-            // display a presentable format of current time
-            var getPadded = function(val){
-                return val < 10 ? ('0' + val) : val;
-            };
+            } else if(perdown) {
+                var secs = percircle.attr('data-secs') || options.secs;
+				var timeUpText = percircle.attr('data-timeUpText') || options.timeUpText;
+				if (timeUpText.length > 8) timeUpText='the end';
+                
+				var counter=setInterval(timer, 1000); 
 
+				function timer() {
+				  secs-=1;
+				 
+				  percircle.html('<span>'+secs+'</span>');
+                    // add divs for structure
+                    $('<div class="slice"><div class="bar" '+progressBarColor+'></div><div class="fill" '+progressBarColor+'></div></div>').appendTo(percircle);
+                    
+                    if (secs === 0) percircle.removeClass('gt50');
+                    if (secs > 30) percircle.addClass('gt50');
+					if (secs < 30) percircle.removeClass('gt50');
+                    
+                    var rotationDegrees = 6 * secs;  // temporary clockwise rotation value
+                    $('.bar', percircle).css({
+                      '-webkit-transform' : 'rotate(' + rotationDegrees + 'deg)',
+                      '-moz-transform'    : 'rotate(' + rotationDegrees + 'deg)',
+                      '-ms-transform'     : 'rotate(' + rotationDegrees + 'deg)',
+                      '-o-transform'      : 'rotate(' + rotationDegrees + 'deg)',
+                      'transform'         : 'rotate(' + rotationDegrees + 'deg)'
+                    });
+					
+					if (secs <= 0) {
+					   clearInterval(counter);
+					   percircle.html('<span>'+timeUpText+'</span>');
+					   return;
+					}
+				}
+			}
         });
     };
+	
+	// move to another file - functions
+	
+	// display a presentable format of current time
+	var getPadded = function(val){
+		return val < 10 ? ('0' + val) : val;
+	};
 });
