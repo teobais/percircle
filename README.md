@@ -86,7 +86,8 @@ Big red dark circle, 43% filled, without animation:
 ```html
 <div id="custom" class="yellow big"></div> 
 <div id="clock" class="purple big"></div>
-<div id="custom-pb-color" class="big"></div>
+<div id="custom-color" class="big"></div>
+<div id="countdown" class="big"></div>
 ```
 <p align="center">
   <img  src="_img/custom.gif" alt="Custom" />
