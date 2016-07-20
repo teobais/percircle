@@ -119,11 +119,6 @@ If you'd like to run the development version, `percirle` uses Gulp to automate b
     # Runs jshint and builds a minified version of the files.
     gulp
 
-
-#TODO
-- [ ] Configure Gulp with [livereload](https://www.npmjs.com/package/gulp-livereload) and also to `watch` for css changes.
-- [ ] Resolve <a href="https://github.com/toubou91/percircle/pull/17">#17</a>
-
 #Contribute
 Feel free to submit a pull request for the <a href="https://github.com/toubou91/percircle/issues" target="_blank">existing</a> issues or even introduce bugs/enhancements by opening a <a href="https://github.com/toubou91/percircle/issues/new" target="_blank">new</a> issue.
 
