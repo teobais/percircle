@@ -1,5 +1,1 @@
-node_modules
-bower_components
-
-# IDE
-.idea/
+/node_modules
