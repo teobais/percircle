@@ -6,7 +6,8 @@ var gulp = require('gulp');
     rtlcss = require('gulp-rtlcss'),
     del = require('del'),
     uglify = require('gulp-uglify'),
-    rename = require('gulp-rename');
+    rename = require('gulp-rename'),
+	jshintSummary = require('jshint-stylish-summary');
 
 require('gulp-stats')(gulp);
     
@@ -23,6 +24,9 @@ gulp.task('watch', function() {
 gulp.task('js', ['clean'], function() {
   return gulp.src('./src/js/**/*.js')
     .pipe(jshint())
+	.pipe(jshint.reporter(stylish))
+	.pipe(jshintSummary.collect())
+    .on('end', jshintSummary.summarize())
     .pipe(uglify())
     .pipe(gulp.dest('dist/js'));
 });
