@@ -143,7 +143,7 @@
                   timerUpdate();
 
                   if (secs <= 0) {
-                    timerStop();
+                    timerStop(counter);
                     percircle.html('<span>'+timeUpText+'</span>');
                     return;
                   }
@@ -153,12 +153,8 @@
                   counter = setInterval(timer, 1000);
                 }
 
-                function timerStop() {
-                  clearInterval(counter);
-                }
-
                 function timerReset() {
-                  timerStop();
+                  timerStop(counter);
 
                   secs = options.secs;
                   timerUpdate();
@@ -188,7 +184,10 @@
     };
 	
 	// move to another file - functions
-	
+	var timerStop = function(val) {
+		clearInterval(val);
+	};
+		
 	// display a presentable format of current time
 	var getPadded = function(val){
 		return val < 10 ? ('0' + val) : val;
