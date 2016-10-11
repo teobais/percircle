@@ -22,7 +22,7 @@ gulp.task('watch', function() {
 });
 
 gulp.task('js', ['clean'], function() {
-  return gulp.src('./src/js/**/*.js')
+  return gulp.src('./src/js/*.js')
     .pipe(jshint())
 	.pipe(jshint.reporter(stylish))
 	.pipe(jshintSummary.collect())

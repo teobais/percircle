@@ -122,72 +122,76 @@
                     });
                 }, 1000);
             } else if(perdown) {
-                var secs = percircle.attr('data-secs') || options.secs;
-                var timeUpText = percircle.attr('data-timeUpText') || options.timeUpText;
-                var reset = percircle[0].hasAttribute('data-reset') || options.reset;
-
-                if (timeUpText.length > 8) timeUpText='the end';
-
-                var counter;
-
-                if (reset) {
-                  percircle.on("click", timerReset);
-                }
-
-                function timer() {
-                  secs-=1;
-
-                  if (secs > 30) percircle.addClass('gt50');
-                  if (secs < 30) percircle.removeClass('gt50');
-
-                  timerUpdate();
-
-                  if (secs <= 0) {
-                    timerStop(counter);
-                    percircle.html('<span>'+timeUpText+'</span>');
-                    return;
-                  }
-                }
-
-                function timerStart() {
-                  counter = setInterval(timer, 1000);
-                }
-
-                function timerReset() {
-                  timerStop(counter);
-
-                  secs = options.secs;
-                  timerUpdate();
-
-                  timerStart();
-                }
-
-                function timerUpdate() {
-                  percircle.html('<span>'+secs+'</span>');
-                  // add divs for structure
-                  $('<div class="slice"><div class="bar" '+progressBarColor+'></div><div class="fill" '+progressBarColor+'></div></div>').appendTo(percircle);
-
-                  var rotationDegrees = 6 * secs;  // temporary clockwise rotation value
-                  $('.bar', percircle).css({
-                    '-webkit-transform' : 'rotate(' + rotationDegrees + 'deg)',
-                    '-moz-transform'    : 'rotate(' + rotationDegrees + 'deg)',
-                    '-ms-transform'     : 'rotate(' + rotationDegrees + 'deg)',
-                    '-o-transform'      : 'rotate(' + rotationDegrees + 'deg)',
-                    'transform'         : 'rotate(' + rotationDegrees + 'deg)'
-                  });
-                }
-
-                // Initialize timer
-                timerStart();
+                getCountdown(percircle, options, progressBarColor);
             }
         });
     };
 	
 	// move to another file - functions
-	var timerStop = function(val) {
-		clearInterval(val);
+	var getCountdown = function(percircle, options, progressBarColor) {
+		var secs = percircle.attr('data-secs') || options.secs;
+		var timeUpText = percircle.attr('data-timeUpText') || options.timeUpText;
+		var reset = percircle[0].hasAttribute('data-reset') || options.reset;
+
+		if (timeUpText.length > 8) timeUpText='the end';
+
+		var counter;
+
+		if (reset) {
+		  percircle.on("click", timerReset);
+		}
+
+		function timer() {
+		  secs-=1;
+
+		  if (secs > 30) percircle.addClass('gt50');
+		  if (secs < 30) percircle.removeClass('gt50');
+
+		  timerUpdate();
+
+		  if (secs <= 0) {
+			timerStop();
+			percircle.html('<span>'+timeUpText+'</span>');
+			return;
+		  }
+		}
+
+		function timerStart() {
+		  counter = setInterval(timer, 1000);
+		}
+
+		function timerStop() {
+		  clearInterval(counter);
+		}
+
+		function timerReset() {
+		  timerStop();
+
+		  secs = options.secs;
+		  timerUpdate();
+
+		  timerStart();
+		}
+
+		function timerUpdate() {
+		  percircle.html('<span>'+secs+'</span>');
+		  // add divs for structure
+		  $('<div class="slice"><div class="bar" '+progressBarColor+'></div><div class="fill" '+progressBarColor+'></div></div>').appendTo(percircle);
+
+		  var rotationDegrees = 6 * secs;  // temporary clockwise rotation value
+		  $('.bar', percircle).css({
+			'-webkit-transform' : 'rotate(' + rotationDegrees + 'deg)',
+			'-moz-transform'    : 'rotate(' + rotationDegrees + 'deg)',
+			'-ms-transform'     : 'rotate(' + rotationDegrees + 'deg)',
+			'-o-transform'      : 'rotate(' + rotationDegrees + 'deg)',
+			'transform'         : 'rotate(' + rotationDegrees + 'deg)'
+		  });
+		}
+
+		// Initialize timer
+		timerStart();
 	};
-		
+	
 	// display a presentable format of current time
 	var getPadded = function(val){
 		return val < 10 ? ('0' + val) : val;
