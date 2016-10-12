@@ -48,8 +48,8 @@
             if (typeof(percircle.attr('data-animate')) !== 'undefined') options.animate = percircle.attr('data-animate') == 'true';
             if (options.animate) percircle.addClass('animate');
             
-            if (typeof(percircle.attr('data-color')) !== 'undefined') {
-                options.progressBarColor = percircle.attr('data-color');
+            if (typeof(percircle.attr('data-progressBarColor')) !== 'undefined') {
+                options.progressBarColor = percircle.attr('data-progressBarColor');
                 progressBarColor = "style='border-color: "+ options.progressBarColor +"'";
                 changeTextColor($(this), options.progressBarColor);
             } else {
