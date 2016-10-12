@@ -32,7 +32,7 @@ gulp.task('js', ['clean'], function() {
 });
 
 gulp.task('css', ['clean'], function() {
-   return gulp.src('src/css/**/*.css')
+   return gulp.src('src/css/*.css')
     .pipe(cssnano())
     .pipe(gulp.dest('dist/css'))
 	// Till this point, we've only managed to minimize the css.
