@@ -2,20 +2,17 @@
 > CSS percentage circle built with jQuery
 
 #Demo
-Dark circles:
+###Custom circles
+```html
+<div id="custom" class="yellow big"></div> 
+<div id="clock" class="purple big"></div>
+<div id="custom-color" class="big"></div>
+<div id="countdown" class="big"></div>
+```
 <p align="center">
-  <img  src="_img/dark_circles.gif" alt="Dark circles" />
+  <img  src="_img/custom1.jpg" alt="Custom" />
 </p>
-
-Custom circles:
-<p align="center">
-  <img  src="_img/custom_three.gif" alt="Custom circles" />
-</p>
-
-Default circles:
-<p align="center">
-  <img  src="_img/light_circles.gif" alt="Sample circles" />
-</p>
+<hr>
 
 #Usage
 ####1. Load the module to your page
@@ -41,57 +38,20 @@ Big blue circle marked with a percent of 50%:
 </p>
 <hr>
 
-Default orange circle marked with a percent of 37%:
-```html
-<div id="orangecircle" data-percent="37" class="orange">
-</div>
-```
-<p align="center">
-  <img  src="_img/default_orange_37.gif" alt="Default orange circle" />
-</p>
-<hr>
-
-Small pink circle marked with a percent of 94%:
-```html
-<div id="pinkcircle" data-percent="94" class="small pink">
-</div>
-```
-
-<p align="center">
-  <img  src="_img/small_pink_94.gif" alt="Small pink circle" />
-</p>
-<hr>
-
 Big red dark circle, 43% filled, without animation:
 ```html
 <div id="redcircle" data-percent="43" data-animate="false" class="dark red big">
 </div>
 ```
-
-<p align="center">
-  <img  src="_img/animation_off.gif" alt="Animation off" />
-</p>
 <hr>
 ####3. Let the script get the job done
 ```html
 <script type="text/javascript">
     $(function(){
-        $("[id$='circle']").percircle();
+        $("#bluecircle").percircle();
     });
 </script>
 ```
-<hr>
-
-###Custom circles
-```html
-<div id="custom" class="yellow big"></div> 
-<div id="clock" class="purple big"></div>
-<div id="custom-color" class="big"></div>
-<div id="countdown" class="big"></div>
-```
-<p align="center">
-  <img  src="_img/custom.gif" alt="Custom" />
-</p>
 <hr>
 
 ###npm
