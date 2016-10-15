@@ -1,7 +1,7 @@
 # percircle
 > CSS percentage circle built with jQuery
 
-#Demo
+#[Demo](https://toubou91.github.io/percircle)</a>
 ###Custom circles
 ```html
 <div id="custom" class="yellow big"></div> 
@@ -36,14 +36,7 @@ Big blue circle marked with a percent of 50%:
 <p align="center">
   <img  src="_img/big_blue_17.gif" alt="Big blue circle" />
 </p>
-<hr>
 
-Big red dark circle, 43% filled, without animation:
-```html
-<div id="redcircle" data-percent="43" data-animate="false" class="dark red big">
-</div>
-```
-<hr>
 ####3. Let the script get the job done
 ```html
 <script type="text/javascript">
