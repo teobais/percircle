@@ -10,7 +10,7 @@
 <div id="countdown" class="big"></div>
 ```
 <p align="center">
-  <img  src="_img/custom1.JPG" alt="Custom" />
+  <img  src="_img/custom2.PNG" alt="Custom" />
 </p>
 <hr>
 
