@@ -1,8 +1,8 @@
 # percircle
 > CSS percentage circle built with jQuery
 
-#[Demo](https://toubou91.github.io/percircle)</a>
-###Custom circles
+# [Demo](https://toubou91.github.io/percircle)
+### Custom circles
 ```html
 <div id="custom" class="yellow big"></div> 
 <div id="clock" class="purple big"></div>
@@ -27,7 +27,7 @@
 </html>
 ```
 
-####2. Define the circle objects
+#### 2. Define the circle objects
 Big blue circle marked with a percent of 50%:
 ```html
 <div id="bluecircle" data-percent="17" class="big">
@@ -37,7 +37,7 @@ Big blue circle marked with a percent of 50%:
   <img  src="_img/big_blue_17.gif" alt="Big blue circle" />
 </p>
 
-####3. Let the script get the job done
+#### 3. Let the script get the job done
 ```html
 <script type="text/javascript">
     $(function(){
@@ -47,13 +47,13 @@ Big blue circle marked with a percent of 50%:
 ```
 <hr>
 
-###npm
+### npm
 Percircle is registered as an npm package and can be installed with:
 ```
 npm install percircle
 ```
 
-###Bower
+### Bower
 Percircle is also registered as a Bower package, so it can be pulled down using:
 ```
 bower install percircle
