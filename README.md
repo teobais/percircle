@@ -2,6 +2,11 @@
 > CSS percentage circle built with jQuery
 
 # [Demo](https://toubou91.github.io/percircle)
+
+
+> ## [Maintainers Wanted!](https://github.com/toubou91/percircle/issues/43)
+---
+
 ### Custom circles
 ```html
 <div id="custom" class="yellow big"></div> 
@@ -72,10 +77,10 @@ If you'd like to run the development version, `percirle` uses Gulp to automate b
     # Runs jshint and builds a minified version of the files.
     gulp
 
-#Contribute
+### Contribute
 Feel free to submit a pull request for the <a href="https://github.com/toubou91/percircle/issues" target="_blank">existing</a> issues or even introduce bugs/enhancements by opening a <a href="https://github.com/toubou91/percircle/issues/new" target="_blank">new</a> issue.
 
-#Credits
+### Credits
 The original project was created from <a href="http://circle.firchow.net/" target="_blank">Andre Firchow</a> and as I didn't find any similar here, I uploaded it.
 
 However, the project loaded all the css transformations, in the <code>percircle.css</code> file. Now, it uses jQuery to apply repeated functionality where needed.
