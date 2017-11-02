@@ -114,7 +114,7 @@ If you'd like to run the development version, `percirle` uses Gulp to automate b
     gulp
 
 ### Contribute
-Feel free to submit a pull request for the <a href="https://github.com/toubou91/percircle/issues" target="_blank">existing</a> issues or even introduce bugs/enhancements by opening a <a href="https://github.com/toubou91/percircle/issues/new" target="_blank">new</a> issue.
+Contributions are more than welcome. Please ensure that you spent some time reading our [Contributor's Guidelines](https://github.com/toubou91/percircle/blob/master/CONTRIBUTING.md).
 
 ### Contributors
 [<img alt="toubou91" src="https://avatars2.githubusercontent.com/u/5684688?v=4&s=117 width=117">](https://github.com/toubou91) |[<img alt="chrisahardie" src="https://avatars0.githubusercontent.com/u/2429373?v=4&s=117 width=117">](https://github.com/chrisahardie) |[<img alt="chris--jones" src="https://avatars0.githubusercontent.com/u/10459377?v=4&s=117 width=117">](https://github.com/chris--jones) |[<img alt="tinglu" src="https://avatars0.githubusercontent.com/u/1032258?v=4&s=117 width=117">](https://github.com/tinglu) |[<img alt="tranthanhhoa" src="https://avatars0.githubusercontent.com/u/6691878?v=4&s=117 width=117">](https://github.com/tranthanhhoa) |[<img alt="ahmadajmi" src="https://avatars1.githubusercontent.com/u/626005?v=4&s=117 width=117">](https://github.com/ahmadajmi) |[<img alt="Sylphony" src="https://avatars3.githubusercontent.com/u/1796078?v=4&s=117 width=117">](https://github.com/Sylphony) |[<img alt="yireo" src="https://avatars0.githubusercontent.com/u/1373981?v=4&s=117 width=117">](https://github.com/yireo) |
