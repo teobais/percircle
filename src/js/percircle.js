@@ -66,7 +66,8 @@
                 if (percent > 50) percircle.addClass('gt50');
                 var text = percircle.attr('data-text') || options.text || percent + '%';
 
-                $('<span>'+text+'</span>').appendTo(percircle);
+                percircle.html('<span>'+text+'</span>');
+
                 // add divs for structure
                 $('<div class="slice"><div class="bar" '+progressBarColor+'></div><div class="fill" '+progressBarColor+'></div></div>').appendTo(percircle);
                 if (percent > 50)

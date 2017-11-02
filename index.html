@@ -52,7 +52,7 @@
             </div>
         </div>
         <!-- /some colors -->
-        
+
         <h2>Custom text</h2>
         <!-- custom text -->
         <div class="clearfix">
@@ -61,6 +61,14 @@
             <div id="bluecircle" data-text="play" data-percent="30" class="small blue"></div>
         </div>
         <!-- /custom text  -->
+
+        <h2>Update value dynamically</h2>
+        <!-- update value dynamically-->
+        <div class="clearfix">
+            <div id="redBecomesBlue" class="red big"></div>
+        </div>
+        <pre>       <a href="javascript:void(0);" id="changeCircle">Fill Circle to 95.5</a><br><br></pre>
+        <!-- /update value dynamically  -->
 
         <h2>Dark theme</h2>
         <!-- .dark-area -->
@@ -130,6 +138,23 @@
 				percent: 64.5
 			});
         });
+
+        $(document).ready(function(){
+            $("#redBecomesBlue").percircle({percent: 25,text: "25"});
+            $('#changeCircle').click(function(e){
+                e.preventDefault();
+                changeCircle();
+            });
+        });
+
+        function changeCircle(){
+            $("#redBecomesBlue").percircle({text:''});
+            $("#redBecomesBlue").percircle({
+                text: "",
+                percent: 95.5,
+                progressBarColor: "#1252c0"
+            });
+        }
     </script>
 </body>
 </html>
