@@ -19,6 +19,40 @@
 </p>
 <hr>
 
+### Update value dynamically
+
+#### Declare your html
+
+```html
+<div class="clearfix">
+    <div id="redBecomesBlue" class="red big"></div>
+</div>
+<a href="javascript:void(0);" id="changeCircle">Fill Circle to 95.5</a>
+```
+<p align="center">
+  <img  src="_img/update-value-dynamically.gif" alt="Big blue circle" />
+</p>
+
+#### Handle the click in the script
+```js
+$(document).ready(function(){
+    $("#redBecomesBlue").percircle({percent: 25,text: "25"});
+    $('#changeCircle').click(function(e){
+        e.preventDefault();
+        changeCircle();
+    });
+});
+
+function changeCircle(){
+    $("#redBecomesBlue").percircle({text:''});
+    $("#redBecomesBlue").percircle({
+        text: "",
+        percent: 95.5,
+        progressBarColor: "#1252c0"
+    });
+}
+```
+<hr/>
 #Usage
 ####1. Load the module to your page
 ```html
