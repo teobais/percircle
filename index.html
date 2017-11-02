@@ -8,9 +8,8 @@
     <title>percircle</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="./bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="./dist/js/percircle.js"></script>
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
     
     <link rel="stylesheet" href="./dist/css/percircle.css">
 	<style>
@@ -40,13 +39,6 @@
 
 <body>
     <div class="page">
-	<a href="https://github.com/toubou91/percircle"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>
-        <!-- Place this tag where you want the button to render. -->
-        <div style="position: absolute; top: 6%; right: 50%; border: 0;">
-            <a class="github-button" href="https://github.com/toubou91/percircle" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star toubou91/percircle on GitHub">Star</a>
-            <a class="github-button" href="https://github.com/toubou91/percircle/fork" data-icon="octicon-repo-forked" data-size="large" data-show-count="true" aria-label="Fork toubou91/percircle on GitHub">Fork</a>
-        </div>
-
         <h1>percircle</h1>
         
         <h2>Color variants</h2>
@@ -60,7 +52,7 @@
             </div>
         </div>
         <!-- /some colors -->
-        
+
         <h2>Custom text</h2>
         <!-- custom text -->
         <div class="clearfix">
@@ -69,6 +61,14 @@
             <div id="bluecircle" data-text="play" data-percent="30" class="small blue"></div>
         </div>
         <!-- /custom text  -->
+
+        <h2>Update value dynamically</h2>
+        <!-- update value dynamically-->
+        <div class="clearfix">
+            <div id="redBecomesBlue" class="red big"></div>
+        </div>
+        <pre>       <a href="javascript:void(0);" id="changeCircle">Fill Circle to 95.5</a><br><br></pre>
+        <!-- /update value dynamically  -->
 
         <h2>Dark theme</h2>
         <!-- .dark-area -->
@@ -103,7 +103,7 @@
             <pre>
     $("#custom").percircle({             $("#clock").percircle({            $("#custom-color").percircle({          $("#custom").percircle({                          
         text:"custom",                       perclock: true                     progressBarColor: "#CC3366",            perdown: true,                        
-        percent: 27                      });                                    percent: 64                             secs: 14, 
+        percent: 27                      });                                    percent: 64.5                           secs: 14, 
     });                                                                     });                                         timeUpText: 'finally!'
                                                                                                                     });                       
             
@@ -111,7 +111,7 @@
             <!-- /custom options -->
         </div>
 
-        <small><a href="http://twitter.com/ThodorisBais">Thodoris Bais</a></small>
+        <small>Thodoris Bais | <a href="http://thodorisbais.blogspot.com">Blog</a></small>
     </div>
     
     <script type="text/javascript">
@@ -135,9 +135,26 @@
             });
 			$("#custom-color").percircle({
 				progressBarColor: "#CC3366",
-				percent: 64
+				percent: 64.5
 			});
         });
+
+        $(document).ready(function(){
+            $("#redBecomesBlue").percircle({percent: 25,text: "25"});
+            $('#changeCircle').click(function(e){
+                e.preventDefault();
+                changeCircle();
+            });
+        });
+
+        function changeCircle(){
+            $("#redBecomesBlue").percircle({text:''});
+            $("#redBecomesBlue").percircle({
+                text: "",
+                percent: 95.5,
+                progressBarColor: "#1252c0"
+            });
+        }
     </script>
 </body>
 </html>
