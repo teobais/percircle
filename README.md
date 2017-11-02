@@ -53,8 +53,10 @@ function changeCircle(){
 }
 ```
 <hr/>
-#Usage
-####1. Load the module to your page
+
+# Usage
+
+#### 1. Load the module to your page
 ```html
 <!DOCTYPE HTML>
 <html>
