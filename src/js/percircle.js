@@ -27,6 +27,16 @@
 
         // for each element matching selector
         return this.each(function(){
+            /*
+               If it is about dynamic value update, ensure the filling of the bar will start from 0 degrees.
+               Without this line, if it as about a dynamic update from a value > 50 to a value < 50, the bar
+               filling will start from 180 degrees.
+               However, this fix is not the best one, UX-wise, since user loses the gradual degredation of the bar.
+               The way this should be best implemented is to perform a smooth animation from > 50deg back to the
+               requested value, instead of first moving to 0deg and then "drawing" again.
+             */
+            if ($(this).hasClass('gt50')) $(this).removeClass('gt50');
+
             var percircle = $(this);
             var progressBarColor = '';
 
