@@ -74,8 +74,9 @@
         <!-- update value dynamically-->
         <div class="clearfix">
             <div id="redBecomesBlue" class="red big"></div>
+            <div id="fiftyTo30" class="pink big"></div>
         </div>
-        <pre>       <a href="javascript:void(0);" id="changeCircle">Fill Circle to 95.5</a><br><br></pre>
+        <pre>       <a href="javascript:void(0);" id="changeCircle">Fill Circle to 95.5</a>                <a href="javascript:void(0);" id="fiftyToThirtyBtn">Fill Circle to 30</a><br><br></pre>
         <!-- /update value dynamically  -->
 
         <h2>Dark theme</h2>
@@ -117,10 +118,8 @@
             
 			</pre>
             <!-- /custom options -->
-        </div>
-
-    <small><a href="http://twitter.com/ThodorisBais">Thodoris Bais</a></small>
     </div>
+    <small>Thodoris Bais | <a href="https://toubou91.github.io">Blog</a></small>
     
     <script type="text/javascript">
         $(function(){ 
@@ -148,19 +147,32 @@
         });
 
         $(document).ready(function(){
-            $("#redBecomesBlue").percircle({percent: 25,text: "25"});
+            $("#redBecomesBlue").percircle({percent: 61,text: "61"});
+            $("#fiftyTo30").percircle({percent: 51,text: "51"});
+
             $('#changeCircle').click(function(e){
                 e.preventDefault();
                 changeCircle();
             });
+            $('#fiftyToThirtyBtn').click(function(e){
+                e.preventDefault();
+                fiftyToThirty();
+            });
         });
 
         function changeCircle(){
-            $("#redBecomesBlue").percircle({text:''});
             $("#redBecomesBlue").percircle({
-                text: "",
+                text: "95.5",
                 percent: 95.5,
-                progressBarColor: "#1252c0"
+                progressBarColor: "#4f18c0"
+            });
+        }
+
+        function fiftyToThirty(){
+            $("#fiftyTo30").percircle({
+                text: "30",
+                percent: 30,
+                progressBarColor: "#1ec0b0"
             });
         }
     </script>
