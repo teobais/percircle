@@ -11,8 +11,12 @@ var gulp = require('gulp');
 
 require('gulp-stats')(gulp);
     
-gulp.task('clean', function() {
-    return del(['dist']);
+gulp.task('cleanjs', function() {
+    return del(['dist/js']);
+});
+
+gulp.task('cleancss', function() {
+    return del(['dist/css']);
 });
 
 gulp.task('watch', function() {
@@ -21,7 +25,7 @@ gulp.task('watch', function() {
     .pipe(jshint.reporter(stylish));
 });
 
-gulp.task('js', ['clean'], function() {
+gulp.task('js', ['cleanjs'], function() {
   return gulp.src('./src/js/*.js')
     .pipe(jshint())
 	.pipe(jshint.reporter(stylish))
@@ -31,7 +35,7 @@ gulp.task('js', ['clean'], function() {
     .pipe(gulp.dest('dist/js'));
 });
 
-gulp.task('css', ['clean'], function() {
+gulp.task('css', ['cleancss'], function() {
    return gulp.src('src/css/*.css')
     .pipe(cssnano())
     .pipe(gulp.dest('dist/css'))
