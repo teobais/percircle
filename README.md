@@ -1,7 +1,7 @@
 # percircle
 > CSS percentage circle built with jQuery
 
-# [Demo](https://toubou91.github.io/percircle)
+# [Demo](https://thodorisbais.github.io/percircle)
 
 
 > ## [Maintainers Wanted!](https://github.com/toubou91/percircle/issues/43)
