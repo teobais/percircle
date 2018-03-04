@@ -200,8 +200,9 @@
   z-index: 1;
   width: 100%;
   top: 50%;
+  top: calc(50% - 0.1em);
+  transform: translateY(-50%);
   height: 1em;
-  margin-top: -0.5em;
   font-size: 0.2em;
   color: #cccccc;
   display: block;
