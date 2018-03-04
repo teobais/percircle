@@ -239,11 +239,11 @@
   cursor: default;
 }
 .percircle:hover > span {
-  -webkit-transform: scale(1.3);
-  -moz-transform: scale(1.3);
-  -ms-transform: scale(1.3);
-  -o-transform: scale(1.3);
-  transform: scale(1.3);
+  -webkit-transform: scale(1.3) translateY(-50%);
+  -moz-transform: scale(1.3) translateY(-50%);
+  -ms-transform: scale(1.3) translateY(-50%);
+  -o-transform: scale(1.3) translateY(-50%);
+  transform: scale(1.3) translateY(-50%);
   color: #307bbb;
 }
 .percircle:hover:after {
