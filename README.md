@@ -52,9 +52,10 @@ function changeCircle(){
         progressBarColor: "#1252c0"
     });
 }
+```
 
 #### Script to check that element is in viewport
-```
+```js
 $.fn.isInViewport = function() {
   var elementTop = $(this).offset().top;
   var viewportTop = $(window).scrollTop();
@@ -64,7 +65,7 @@ $.fn.isInViewport = function() {
 ```
 
 #### Update the animation on scroll
-```
+```js
 $(document).ready(function(){
   $("#orangeAnimateOnScroll").percircle();
   $(window).scroll( function(e){
