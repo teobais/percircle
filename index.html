@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="./bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="./dist/js/percircle.js"></script>
-    
+
     <link rel="stylesheet" href="./dist/css/percircle.css">
 	<style>
 	body {
@@ -34,13 +34,13 @@
 		margin: 0 -40px 20px -40px;
 	}
 	</style>
-	
+
 </head>
 
 <body>
     <div class="page">
         <h1>percircle</h1>
-        
+
         <h2>Color variants</h2>
         <!-- some colors -->
         <div class="clearfix">
@@ -70,6 +70,15 @@
         </div>
         <pre>       <a href="javascript:void(0);" id="changeCircle">Fill Circle to 95.5</a>                <a href="javascript:void(0);" id="fiftyToThirtyBtn">Fill Circle to 30</a><br><br></pre>
         <!-- /update value dynamically  -->
+        <h2>Update value when scroll into screen</h2>
+        <div class="clearfix">
+          <div id="updateOnScroll" class="orange big"></div>
+          <div id="updateOnScroll2" class="blue big"></div>
+        </div>
+        <div class="clearfix">
+          <div id="updateOnScroll3" class="pink big"></div>
+          <div id="updateOnScroll4" class="red big"></div>
+        </div>
 
         <h2>Dark theme</h2>
         <!-- .dark-area -->
@@ -82,7 +91,7 @@
             </div>
             <!-- /some colors -->
         </div>
-        
+
         <h2>Animation off</h2>
         <!-- .animation-off -->
         <div class="dark-area clearfix">
@@ -92,42 +101,42 @@
             </div>
             <!-- /some colors -->
         </div><!-- /.animation-off -->
-        
+
         <h2>Custom options</h2>
             <!-- custom options -->
             <div class="clearfix">
-                <div id="custom" class="yellow big"></div> 
+                <div id="custom" class="yellow big"></div>
                 <div id="clock" class="purple big"></div>
 				<div id="custom-color" class="big"></div>
 				<div id="countdown" class="big"></div>
             </div>
             <pre>
-    $("#custom").percircle({             $("#clock").percircle({            $("#custom-color").percircle({          $("#custom").percircle({                          
-        text:"custom",                       perclock: true                     progressBarColor: "#CC3366",            perdown: true,                        
-        percent: 27                      });                                    percent: 64.5                           secs: 14, 
+    $("#custom").percircle({             $("#clock").percircle({            $("#custom-color").percircle({          $("#custom").percircle({
+        text:"custom",                       perclock: true                     progressBarColor: "#CC3366",            perdown: true,
+        percent: 27                      });                                    percent: 64.5                           secs: 14,
     });                                                                     });                                         timeUpText: 'finally!'
-                                                                                                                    });                       
-            
+                                                                                                                    });
+
 			</pre>
             <!-- /custom options -->
     </div>
     <small>Thodoris Bais | <a href="https://toubou91.github.io">Blog</a></small>
-    
+
     <script type="text/javascript">
-        $(function(){ 
+        $(function(){
             $("[id$='circle']").percircle();
-            
+
             $("#clock").percircle({
                 perclock: true
             });
-			
+
 			$("#countdown").percircle({
                 perdown: true,
 				secs: 14,
 				timeUpText: 'finally!',
 				reset: true
             });
-            
+
             $("#custom").percircle({
                 text:"custom",
                 percent: 27
@@ -137,6 +146,13 @@
 				percent: 64.5
 			});
         });
+
+        $.fn.isInViewport = function() {
+          var elementTop = $(this).offset().top;
+          var viewportTop = $(window).scrollTop();
+          var viewportBottom = viewportTop + $(window).height();
+          return elementTop < viewportBottom;
+        };
 
         $(document).ready(function(){
             $("#redBecomesBlue").percircle({percent: 61,text: "61"});
@@ -150,6 +166,18 @@
                 e.preventDefault();
                 fiftyToThirty();
             });
+
+            $('#updateOnScroll').percircle();
+            $('#updateOnScroll2').percircle();
+            $('#updateOnScroll3').percircle();
+            $('#updateOnScroll4').percircle();
+            $(window).scroll(function(e){
+                e.preventDefault();
+                animateCircle($("#updateOnScroll"), '25%', 25);
+                animateCircle($("#updateOnScroll2"), '35%', 35);
+                animateCircle($("#updateOnScroll3"), '15%', 15);
+                animateCircle($("#updateOnScroll4"), '15%', 25);
+              });
         });
 
         function changeCircle(){
@@ -158,6 +186,16 @@
                 percent: 95.5,
                 progressBarColor: "#1252c0"
             });
+        }
+
+        function animateCircle(el, displayText, displayPercent) {
+          console.log()
+          if (el.isInViewport() && el.text() == ''){
+            el.percircle({
+              text: displayText,
+              percent: displayPercent,
+            });
+          }
         }
 
         function fiftyToThirty(){

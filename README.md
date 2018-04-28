@@ -9,7 +9,7 @@
 
 ### Custom circles
 ```html
-<div id="custom" class="yellow big"></div> 
+<div id="custom" class="yellow big"></div>
 <div id="clock" class="purple big"></div>
 <div id="custom-color" class="big"></div>
 <div id="countdown" class="big"></div>
@@ -26,6 +26,7 @@
 ```html
 <div class="clearfix">
     <div id="redBecomesBlue" class="red big"></div>
+    <div id="orangeAnimateOnScroll" class="orange"></div>
 </div>
 <a href="javascript:void(0);" id="changeCircle">Fill Circle to 95.5</a>
 ```
@@ -50,6 +51,36 @@ function changeCircle(){
         percent: 95.5,
         progressBarColor: "#1252c0"
     });
+}
+
+#### Script to check that element is in viewport
+```
+$.fn.isInViewport = function() {
+  var elementTop = $(this).offset().top;
+  var viewportTop = $(window).scrollTop();
+  var viewportBottom = viewportTop + $(window).height();
+  return elementTop < viewportBottom;
+};
+```
+
+#### Update the animation on scroll
+```
+$(document).ready(function(){
+  $("#orangeAnimateOnScroll").percircle();
+  $(window).scroll( function(e){
+      e.preventDefault();
+      animateCircle($("#orangeAnimateOnScroll"), '25%', 25)
+    }
+  );
+});
+
+function animateCircle(el, displayText, displayPercent) {
+  if (el.isInViewport() && el.text() == ''){
+    el.percircle({
+      text: displayText,
+      percent: displayPercent,
+    });
+  }
 }
 ```
 <hr/>
@@ -107,7 +138,7 @@ If you'd like to run the development version, `percirle` uses Gulp to automate b
     npm install -g gulp
     npm install
 
-    # Watches the js files for changes, while linting them concurrently 
+    # Watches the js files for changes, while linting them concurrently
     gulp watch
 
     # Runs jshint and builds a minified version of the files.
