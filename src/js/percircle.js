@@ -72,7 +72,7 @@
             var percent = percircle.attr('data-percent') || options.percent || 0;
             var perclock = percircle.attr('data-perclock') || options.perclock || 0;
             var perdown = percircle.attr('data-perdown') || options.perdown || 0;
-            if (percent) {
+            if (percent || options.displayTextAtZero) {
                 if (percent > 50) percircle.addClass('gt50');
                 var text = percircle.attr('data-text') || options.text || percent + '%';
 
