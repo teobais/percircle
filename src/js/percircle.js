@@ -17,7 +17,7 @@
     // default options
     var defaultOptions = {
       animate: true,
-      animateOnView: false, // if true, will start animations once circle is in view
+      animateOnView: false // if true, will start animations once circle is in view
     };
 
     var rotationMultiplier = 3.6;
