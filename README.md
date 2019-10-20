@@ -100,6 +100,23 @@ Percircle is also registered as a Bower package, so it can be pulled down using:
 bower install percircle
 ```
 
+<hr/>
+
+### Options
+| Option | Description | via configuration object | via data attribute | Default |
+| -- | -- | -- | -- | -- |
+| Animate | Whether to animate the progress bar on load (or view) | `{ animate: "true" }` | data-animate="true" | true |
+| Clock | Display a clock in the percircle | `{ perclock: true}` | data-perclock="true" | false |
+| Countdown | Display a countdown in the percircle | `{ perdown: true}` | data-perdown="true" | false |
+| Countdown seconds | The amount of seconds to countdown. | `{ secs: 15 }` | data-secs="15" | - |
+| Countdown time up text | Text to display when countdown has completed.	| `{ timeUpText: 'Complete!' }` | data-timeUpText="Complete!" | - |
+| Countdown reset on click | Whether to reset the countdown on percircle click | `{ reset: true }` | data-reset="true" | false 
+| DisplayTextAtZero | Whether to display text even when the percentage is 0 | `{ displayTextAtZero: true }` | n/a | false |
+| Progress bar color | The colour of the progress bar | `{ progressBarColor: '#6188ff' }` | data-progressBarColor="#6188ff" | empty (inherit from class or css) |
+| Text | Text to display inside the percirle | `{ percent: 65 }` | data-percent="65" | undefined (use percent value) |
+
+<hr/>
+
 ### Building Percircle Locally
 
 If you'd like to run the development version, `percirle` uses Gulp to automate basic tasks, like building.  Head over to https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md for more information.  First, clone the repository, then run:
