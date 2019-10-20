@@ -2,106 +2,125 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
 <head>
-    <meta charset="utf-8">
-    <title>percircle</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="./bower_components/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="./dist/js/percircle.js"></script>
-    
-    <link rel="stylesheet" href="./dist/css/percircle.css">
-	<style>
-	body {
-		background-color: #f5f5f5;
-		margin: 0;
-		padding: 0;
-		font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-	}
-	.page {
-		margin: 40px;
-	}
-	h1 {
-		margin: 40px 0 60px 0;
-	}
-	.clearfix:before, .clearfix:after { content: " "; display: table; }
-	.clearfix:after { clear: both; }
-	.clearfix { *zoom: 1; }
-	.dark-area {
-		background-color: #555;
-		padding: 40px;
-		margin: 0 -40px 20px -40px;
-	}
-	</style>
-	
+  <meta charset="utf-8">
+  <title>percircle</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script
+			  src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+			  integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+        crossorigin="anonymous"></script>
+  <script src="./percircle.bundle.js"></script>
+  <link rel="stylesheet" href="./percircle.css">
+  <style>
+    body {
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    }
+
+    .page {
+      margin: 40px;
+    }
+
+    h1 {
+      margin: 40px 0 60px 0;
+    }
+
+    .clearfix:before,
+    .clearfix:after {
+      content: " ";
+      display: table;
+    }
+
+    .clearfix:after {
+      clear: both;
+    }
+
+    .clearfix {
+      *zoom: 1;
+    }
+
+    .dark-area {
+      background-color: #555;
+      padding: 40px;
+      margin: 0 -40px 20px -40px;
+    }
+  </style>
+
 </head>
 
 <body>
-    <div class="page">
-        <h1>percircle</h1>
-        
-        <h2>Color variants</h2>
-        <!-- some colors -->
-        <div class="clearfix">
-            <div id="bluecircle" data-percent="17" class="big">
-            </div>
-            <div id="orangecircle" data-percent="37" class="orange">
-            </div>
-            <div id="greencircle" data-percent="94" class="small green">
-            </div>
-        </div>
-        <!-- /some colors -->
+  <div class="page">
+    <h1>percircle</h1>
 
-        <h2>Custom text</h2>
-        <!-- custom text -->
-        <div class="clearfix">
-            <div id="pinkcircle" data-text="work" data-percent="65" class="red big"></div>
-            <div id="bluecircle" data-text="rest" data-percent="87" class="purple"></div>
-            <div id="bluecircle" data-text="play" data-percent="30" class="small blue"></div>
-        </div>
-        <!-- /custom text  -->
+    <h2>Color variants</h2>
+    <!-- some colors -->
+    <div class="clearfix">
+      <div id="bluecircle" data-percent="17" class="big">
+      </div>
+      <div id="orangecircle" data-percent="37" class="orange">
+      </div>
+      <div id="greencircle" data-percent="94" class="small green">
+      </div>
+    </div>
+    <!-- /some colors -->
 
-        <h2>Update value dynamically</h2>
-        <!-- update value dynamically-->
-        <div class="clearfix">
-            <div id="redBecomesBlue" class="red big"></div>
-            <div id="fiftyTo30" class="pink big"></div>
-        </div>
-        <pre>       <a href="javascript:void(0);" id="changeCircle">Fill Circle to 95.5</a>                <a href="javascript:void(0);" id="fiftyToThirtyBtn">Fill Circle to 30</a><br><br></pre>
-        <!-- /update value dynamically  -->
+    <h2>Custom text</h2>
+    <!-- custom text -->
+    <div class="clearfix">
+      <div id="pinkcircle" data-text="work" data-percent="65" class="red big"></div>
+      <div id="bluecircle" data-text="rest" data-percent="87" class="purple"></div>
+      <div id="bluecircle" data-text="play" data-percent="30" class="small blue"></div>
+    </div>
+    <!-- /custom text  -->
 
-        <h2>Dark theme</h2>
-        <!-- .dark-area -->
-        <div class="dark-area clearfix">
-            <!-- some colors -->
-            <div class="clearfix">
-                <div id="lightcircle" data-percent="77" class="dark big"></div>
-                <div id="dgreencircle" data-percent="50" class="dark blue"></div>
-                <div id="sacircle" data-percent="33" class="dark small pink"></div>
-            </div>
-            <!-- /some colors -->
-        </div>
-        
-        <h2>Animation off</h2>
-        <!-- .animation-off -->
-        <div class="dark-area clearfix">
-            <!-- some colors -->
-            <div class="clearfix">
-                <div id="redcircle" data-percent="43" data-animate="false" class="dark red big"></div>
-            </div>
-            <!-- /some colors -->
-        </div><!-- /.animation-off -->
-        
-        <h2>Custom options</h2>
-            <!-- custom options -->
-            <div class="clearfix">
-                <div id="custom" class="yellow big"></div> 
-                <div id="clock" class="purple big"></div>
-				<div id="custom-color" class="big"></div>
-				<div id="countdown" class="big"></div>
-            </div>
-            <pre>
+    <h2>Update value dynamically</h2>
+    <!-- update value dynamically-->
+    <div class="clearfix">
+      <div id="redBecomesBlue" class="red big"></div>
+      <div id="fiftyTo30" class="pink big"></div>
+    </div>
+    <pre>       <a href="javascript:void(0);" id="changeCircle">Fill Circle to 95.5</a>                <a href="javascript:void(0);" id="fiftyToThirtyBtn">Fill Circle to 30</a><br><br></pre>
+    <!-- /update value dynamically  -->
+
+    <h2>Dark theme</h2>
+    <!-- .dark-area -->
+    <div class="dark-area clearfix">
+      <!-- some colors -->
+      <div class="clearfix">
+        <div id="lightcircle" data-percent="77" class="dark big"></div>
+        <div id="dgreencircle" data-percent="50" class="dark blue"></div>
+        <div id="sacircle" data-percent="33" class="dark small pink"></div>
+      </div>
+      <!-- /some colors -->
+    </div>
+
+    <h2>Animation off</h2>
+    <!-- .animation-off -->
+    <div class="dark-area clearfix">
+      <!-- some colors -->
+      <div class="clearfix">
+        <div id="redcircle" data-percent="43" data-animate="false" class="dark red big"></div>
+      </div>
+      <!-- /some colors -->
+    </div><!-- /.animation-off -->
+
+    <h2>Custom options</h2>
+    <!-- custom options -->
+    <div class="clearfix">
+      <div id="custom" class="yellow big"></div>
+      <div id="clock" class="purple big"></div>
+      <div id="custom-color" class="big"></div>
+      <div id="countdown" class="big"></div>
+    </div>
+    <pre>
     $("#custom").percircle({             $("#clock").percircle({            $("#custom-color").percircle({          $("#custom").percircle({                          
         text:"custom",                       perclock: true                     progressBarColor: "#CC3366",            perdown: true,                        
         percent: 27                      });                                    percent: 64.5                           secs: 14, 
@@ -109,64 +128,71 @@
                                                                                                                     });                       
             
 			</pre>
-            <!-- /custom options -->
-    </div>
-    <small>Thodoris Bais | <a href="https://toubou91.github.io">Blog</a></small>
-    
-    <script type="text/javascript">
-        $(function(){ 
-            $("[id$='circle']").percircle();
-            
-            $("#clock").percircle({
-                perclock: true
-            });
-			
-			$("#countdown").percircle({
-                perdown: true,
-				secs: 14,
-				timeUpText: 'finally!',
-				reset: true
-            });
-            
-            $("#custom").percircle({
-                text:"custom",
-                percent: 27
-            });
-			$("#custom-color").percircle({
-				progressBarColor: "#CC3366",
-				percent: 64.5
-			});
-        });
+    <!-- /custom options -->
+  </div>
+  <small>Thodoris Bais | <a href="https://toubou91.github.io">Blog</a></small>
 
-        $(document).ready(function(){
-            $("#redBecomesBlue").percircle({percent: 61,text: "61"});
-            $("#fiftyTo30").percircle({percent: 51,text: "51"});
+  <script type="text/javascript">
+    $(function () {
+      $("[id$='circle']").percircle();
 
-            $('#changeCircle').click(function(e){
-                e.preventDefault();
-                changeCircle();
-            });
-            $('#fiftyToThirtyBtn').click(function(e){
-                e.preventDefault();
-                fiftyToThirty();
-            });
-        });
+      $("#clock").percircle({
+        perclock: true
+      });
 
-        function changeCircle(){
-            $("#redBecomesBlue").percircle({
-                text: "95.5",
-                percent: 95.5,
-                progressBarColor: "#1252c0"
-            });
-        }
+      $("#countdown").percircle({
+        perdown: true,
+        secs: 14,
+        timeUpText: 'finally!',
+        reset: true
+      });
 
-        function fiftyToThirty(){
-            $("#fiftyTo30").percircle({
-                text: "30",
-                percent: 30,
-                progressBarColor: "#1ec0b0"
-            });
-        }
-    </script>
+      $("#custom").percircle({
+        text: "custom",
+        percent: 27
+      });
+      $("#custom-color").percircle({
+        progressBarColor: "#CC3366",
+        percent: 64.5
+      });
+    });
+
+    $(document).ready(function () {
+      $("#redBecomesBlue").percircle({
+        percent: 61,
+        text: "61"
+      });
+      $("#fiftyTo30").percircle({
+        percent: 51,
+        text: "51"
+      });
+
+      $('#changeCircle').click(function (e) {
+        e.preventDefault();
+        changeCircle();
+      });
+      $('#fiftyToThirtyBtn').click(function (e) {
+        e.preventDefault();
+        fiftyToThirty();
+      });
+    });
+
+    function changeCircle() {
+      $("#redBecomesBlue").percircle({
+        text: "95.5",
+        percent: 95.5,
+        progressBarColor: "#1252c0"
+      });
+    }
+
+    function fiftyToThirty() {
+      $("#fiftyTo30").percircle({
+        text: "30",
+        percent: 30,
+        progressBarColor: "#1ec0b0"
+      });
+    }
+  </script>
 </body>
+
 </html>
