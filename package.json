@@ -24,18 +24,28 @@
     "url": "https://github.com/toubou91/percircle/issues"
   },
   "homepage": "https://github.com/toubou91/percircle#readme",
+  "peerDependencies": {
+    "jquery": "3.4.1"
+  },
   "devDependencies": {
-    "del": "^2.2.0",
-    "gulp": "^3.9.1",
-    "gulp-cssnano": "^2.1.1",
-    "gulp-jshint": "^2.0.1",
-    "gulp-rename": "^1.2.2",
-    "gulp-rtlcss": "^1.0.0",
-    "gulp-stats": "0.0.3",
-    "gulp-uglify": "^1.5.2",
-    "gulp-watch": "^4.3.5",
-    "jshint": "^2.9.2",
-    "jshint-stylish": "^2.1.0",
-    "jshint-stylish-summary": "^0.1.2"
+    "babel-plugin-syntax-dynamic-import": "6.18.0",
+    "clean-webpack-plugin": "3.0.0",
+    "css-loader": "3.2.0",
+    "html-webpack-plugin": "3.2.0",
+    "jshint": "2.10.2",
+    "jshint-stylish": "2.2.1",
+    "jshint-stylish-summary": "1.0.0",
+    "less": "3.10.3",
+    "less-loader": "5.0.0",
+    "mini-css-extract-plugin": "0.8.0",
+    "style-loader": "1.0.0",
+    "webpack": "4.41.2",
+    "webpack-cli": "3.3.9",
+    "webpack-dev-server": "3.8.2",
+    "webpack-merge": "4.2.2"
+  },
+  "scripts": {
+    "build": "webpack --config config/webpack.prod.js",
+    "start": "webpack-dev-server --open --config config/webpack.dev.js"
   }
 }
