@@ -1,28 +1,38 @@
 const path = require('path');
-const { ProvidePlugin } = require('webpack');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const {
+  ProvidePlugin
+} = require('webpack');
+const {
+  CleanWebpackPlugin
+} = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-module.exports = {
+module.exports = env => ({
   entry: {
     percircle: './src/js/percircle.js',
   },
   module: {
-    rules: [
-      {
-        test: /\.less$/,
-        use: [
-            {
-              loader: MiniCssExtractPlugin.loader,
-              options: {
-                hmr: process.env.NODE_ENV === 'development',
-              },
-            },
-            'css-loader',
-            'less-loader' // compiles Less to css
-        ]
-      }
-    ],
+    rules: [{
+      test: /\.less$/,
+      use: [{
+          loader: MiniCssExtractPlugin.loader,
+          options: {
+            hmr: env.development,
+          },
+        },
+        'css-loader',
+        {
+          loader: 'postcss-loader',
+          options: {
+            plugins: [
+              require('autoprefixer'),
+              env.production && require('cssnano')({})
+            ].filter(plugin => !!plugin)
+          }
+        },
+        'less-loader' // compiles Less to css
+      ]
+    }],
   },
   externals: {
     jquery: 'jQuery'
@@ -42,4 +52,4 @@ module.exports = {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, '../dist'),
   },
-};
+});
