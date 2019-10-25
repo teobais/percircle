@@ -6,6 +6,7 @@ const {
   CleanWebpackPlugin
 } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const WebpackRTLPlugin = require('webpack-rtl-plugin');
 
 module.exports = env => ({
   entry: {
@@ -43,13 +44,14 @@ module.exports = env => ({
       filename: '[name].css',
       chunkFilename: '[id].css'
     }),
+    new WebpackRTLPlugin(),
     new ProvidePlugin({
       $: "jquery",
       jQuery: "jquery"
     })
   ],
   output: {
-    filename: '[name].bundle.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, '../dist'),
   },
 });
