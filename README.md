@@ -111,7 +111,7 @@ bower install percircle
 | Countdown seconds | The amount of seconds to countdown. | `{ secs: 15 }` | data-secs="15" | - |
 | Countdown time up text | Text to display when countdown has completed.	| `{ timeUpText: 'Complete!' }` | data-timeUpText="Complete!" | - |
 | Countdown reset on click | Whether to reset the countdown on percircle click | `{ reset: true }` | data-reset="true" | false 
-| DisplayTextAtZero | Whether to display text even when the percentage is 0 | `{ displayTextAtZero: true }` | n/a | false |
+| Display text at zero | Whether to display text even when the percentage is 0 | `{ displayTextAtZero: true }` | n/a | false |
 | Progress bar color | The colour of the progress bar | `{ progressBarColor: '#6188ff' }` | data-progressBarColor="#6188ff" | empty (inherit from class or css) |
 | Text | Text to display inside the percirle | `{ percent: 65 }` | data-percent="65" | undefined (use percent value) |
 
@@ -119,16 +119,14 @@ bower install percircle
 
 ### Building Percircle Locally
 
-If you'd like to run the development version, `percirle` uses Gulp to automate basic tasks, like building.  Head over to https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md for more information.  First, clone the repository, then run:
+If you'd like to run the development version, `percircle` uses Webpack to handle build tasks like bundling and minification.
+First, clone the repository, then run:
 
-    npm install -g gulp
+    # Install the dependencies
     npm install
 
-    # Watches the js files for changes, while linting them concurrently 
-    gulp watch
-
-    # Runs jshint and builds a minified version of the files.
-    gulp
+    # Launch webpack dev server, whilst watching for any js or css changes 
+    npm start
 
 ### Contribute
 Contributions are more than welcome. Please ensure that you spent some time reading our [Contributor's Guidelines](https://github.com/toubou91/percircle/blob/master/CONTRIBUTING.md).
