@@ -92,6 +92,11 @@ export default {
       type: String,
       default: "",
     },
+
+    animateOnScroll: {
+      type: Boolean,
+      default: false,
+    },
   },
 
   data() {
@@ -160,6 +165,10 @@ export default {
     },
 
     rotationDegrees() {
+      if (!this.initialized) {
+        return 0;
+      }
+
       if (this.perclock) {
         return 6 * this.date.getSeconds();
       } else if (this.perdown) {
@@ -171,19 +180,20 @@ export default {
   },
 
   mounted() {
-    setTimeout(() => {
-      //Display start up animation
-      this.initialized = true;
-
-      setTimeout(() => {
-        this.ready = true;
-      }, 150);
-    }, 0);
+    if (
+      (this.animateOnScroll && this.isInViewport()) ||
+      !this.animateOnScroll
+    ) {
+      this.initPercircle();
+    } else {
+      this.setScrollEventListener();
+    }
   },
 
   beforeDestroy() {
     this.deleteClockInterval();
     this.deleteTimerInterval();
+    this.deleteEventListeners();
   },
 
   watch: {
@@ -233,6 +243,29 @@ export default {
   },
 
   methods: {
+    isInViewport() {
+      const rect = this.$el.getBoundingClientRect();
+      return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <=
+          (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <=
+          (window.innerWidth || document.documentElement.clientWidth)
+      );
+    },
+
+    initPercircle() {
+      setTimeout(() => {
+        //Display start up animation
+        this.initialized = true;
+
+        setTimeout(() => {
+          this.ready = true;
+        }, 150);
+      }, 0);
+    },
+
     setClockInterval() {
       this.clockInterval = setInterval(() => {
         this.date = new Date();
@@ -288,6 +321,23 @@ export default {
 
     stopHover() {
       this.hovering = false;
+    },
+
+    setScrollEventListener() {
+      this.scrollEventListener = window.addEventListener(
+        "scroll",
+        this.scrollEventListener
+      );
+    },
+
+    scrollEventListener() {
+      if (!this.initialized && this.animateOnScroll && this.isInViewport()) {
+        this.initPercircle();
+      }
+    },
+
+    deleteEventListeners() {
+      window.removeEventListener("scroll", this.scrollEventListener);
     },
   },
 };

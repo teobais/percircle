@@ -59,6 +59,23 @@
       </code>
     </pre>
     <percircle perclock />
+    <h3>Percircle (Animate on scroll)</h3>
+    <pre>
+      <code> 
+        { 
+          percent: {{percent}},
+          displayTextAtZero: true,
+          progressBarColor: "#1B75BC",
+          animateOnScroll: true
+        } 
+      </code>
+    </pre>
+    <percircle :percent="percent" progressBarColor="#1B75BC" animateOnScroll />
+
+    <div class="buttons">
+      <button class="button" @click="add(10)">+10</button>
+      <button class="button" @click="add(-10)">-10</button>
+    </div>
   </div>
 </template>
 
