@@ -9,7 +9,14 @@
       >.
     </p>
 
-    <h3>Percircle test</h3>
+    <h3>Perdown</h3>
+    <pre>
+      <code> 
+        { 
+          perdown: true 
+        } 
+      </code>
+    </pre>
     <percircle perdown />
     <h3>Installed CLI Plugins</h3>
     <ul>
@@ -125,5 +132,12 @@ li {
 }
 a {
   color: #42b983;
+}
+
+pre code {
+  background-color: #eee;
+  border: 1px solid #999;
+  display: block;
+  padding: 20px;
 }
 </style>

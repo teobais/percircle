@@ -289,11 +289,16 @@ export default {
 
   &.animate {
     .bar {
-      transition: transform 0.2s ease-in-out;
+      transition: transform 0.2s ease-in-out, border-width 0.2s ease-in-out;
+    }
+
+    &:before,
+    .fill {
+      transition: border-width 0.2s ease-in-out;
     }
 
     & > span {
-      transition: color 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
     }
   }
 
