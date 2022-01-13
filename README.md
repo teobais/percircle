@@ -4,7 +4,7 @@
 # [Demo](https://teobais.github.io/percircle)
 
 
-> ## [Maintainers Wanted!](https://github.com/toubou91/percircle/issues/43)
+> ## [Maintainers Wanted!](https://github.com/teobais/percircle/issues/43)
 ---
 
 ### Custom circles
@@ -129,12 +129,12 @@ First, clone the repository, then run:
     npm start
 
 ### Contribute
-Contributions are more than welcome. Please ensure that you spent some time reading our [Contributor's Guidelines](https://github.com/toubou91/percircle/blob/master/CONTRIBUTING.md).
+Contributions are more than welcome. Please ensure that you spent some time reading our [Contributor's Guidelines](https://github.com/teobais/percircle/blob/master/CONTRIBUTING.md).
 
 ### Contributors
-[<img alt="toubou91" src="https://avatars2.githubusercontent.com/u/5684688?v=4&s=117 width=117">](https://github.com/toubou91) |[<img alt="chrisahardie" src="https://avatars0.githubusercontent.com/u/2429373?v=4&s=117 width=117">](https://github.com/chrisahardie) |[<img alt="chris--jones" src="https://avatars0.githubusercontent.com/u/10459377?v=4&s=117 width=117">](https://github.com/chris--jones) |[<img alt="tinglu" src="https://avatars0.githubusercontent.com/u/1032258?v=4&s=117 width=117">](https://github.com/tinglu) |[<img alt="tranthanhhoa" src="https://avatars0.githubusercontent.com/u/6691878?v=4&s=117 width=117">](https://github.com/tranthanhhoa) |[<img alt="ahmadajmi" src="https://avatars1.githubusercontent.com/u/626005?v=4&s=117 width=117">](https://github.com/ahmadajmi) |[<img alt="Sylphony" src="https://avatars3.githubusercontent.com/u/1796078?v=4&s=117 width=117">](https://github.com/Sylphony) |[<img alt="yireo" src="https://avatars0.githubusercontent.com/u/1373981?v=4&s=117 width=117">](https://github.com/yireo) |
+[<img alt="teobais" src="https://avatars2.githubusercontent.com/u/5684688?v=4&s=117 width=117">](https://github.com/teobais) |[<img alt="chrisahardie" src="https://avatars0.githubusercontent.com/u/2429373?v=4&s=117 width=117">](https://github.com/chrisahardie) |[<img alt="chris--jones" src="https://avatars0.githubusercontent.com/u/10459377?v=4&s=117 width=117">](https://github.com/chris--jones) |[<img alt="tinglu" src="https://avatars0.githubusercontent.com/u/1032258?v=4&s=117 width=117">](https://github.com/tinglu) |[<img alt="tranthanhhoa" src="https://avatars0.githubusercontent.com/u/6691878?v=4&s=117 width=117">](https://github.com/tranthanhhoa) |[<img alt="ahmadajmi" src="https://avatars1.githubusercontent.com/u/626005?v=4&s=117 width=117">](https://github.com/ahmadajmi) |[<img alt="Sylphony" src="https://avatars3.githubusercontent.com/u/1796078?v=4&s=117 width=117">](https://github.com/Sylphony) |[<img alt="yireo" src="https://avatars0.githubusercontent.com/u/1373981?v=4&s=117 width=117">](https://github.com/yireo) |
 :---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-[thodorisbais](https://github.com/thodorisbais)|[chrisahardie](https://github.com/chrisahardie)|[chris--jones](https://github.com/chris--jones)|[tinglu](https://github.com/tinglu)|[tranthanhhoa](https://github.com/tranthanhhoa)|[ahmadajmi](https://github.com/ahmadajmi)|[Sylphony](https://github.com/Sylphony)|[yireo](https://github.com/yireo)|
+[teobais](https://github.com/teobais)|[chrisahardie](https://github.com/chrisahardie)|[chris--jones](https://github.com/chris--jones)|[tinglu](https://github.com/tinglu)|[tranthanhhoa](https://github.com/tranthanhhoa)|[ahmadajmi](https://github.com/ahmadajmi)|[Sylphony](https://github.com/Sylphony)|[yireo](https://github.com/yireo)|
 
 ### Credits
 The original project was created from <a href="http://circle.firchow.net/" target="_blank">Andre Firchow</a> and as I didn't find any similar here, I uploaded it.
