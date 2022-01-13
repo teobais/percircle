@@ -176,6 +176,11 @@ export default {
     }, 0);
   },
 
+  beforeDestroy() {
+    this.deleteClockInterval();
+    this.deleteTimerInterval();
+  },
+
   watch: {
     perclock: {
       immediate: true,
