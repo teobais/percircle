@@ -1,98 +1,59 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br />
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener"
-        >vue-cli documentation</a
-      >.
-    </p>
-
-    <h3>Perdown</h3>
+    <h3>Percircle (Custom colors and reactive percents)</h3>
     <pre>
       <code> 
         { 
-          perdown: true 
+          percent: {{percent}},
+          displayTextAtZero: true,
+          progressBarColor: "#1B75BC"
         } 
       </code>
     </pre>
-    <percircle perdown />
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel"
-          target="_blank"
-          rel="noopener"
-          >babel</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint"
-          target="_blank"
-          rel="noopener"
-          >eslint</a
-        >
-      </li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li>
-        <a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a>
-      </li>
-      <li>
-        <a href="https://forum.vuejs.org" target="_blank" rel="noopener"
-          >Forum</a
-        >
-      </li>
-      <li>
-        <a href="https://chat.vuejs.org" target="_blank" rel="noopener"
-          >Community Chat</a
-        >
-      </li>
-      <li>
-        <a href="https://twitter.com/vuejs" target="_blank" rel="noopener"
-          >Twitter</a
-        >
-      </li>
-      <li>
-        <a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a>
-      </li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li>
-        <a href="https://router.vuejs.org" target="_blank" rel="noopener"
-          >vue-router</a
-        >
-      </li>
-      <li>
-        <a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-devtools#vue-devtools"
-          target="_blank"
-          rel="noopener"
-          >vue-devtools</a
-        >
-      </li>
-      <li>
-        <a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener"
-          >vue-loader</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-          rel="noopener"
-          >awesome-vue</a
-        >
-      </li>
-    </ul>
+    <percircle :percent="percent" progressBarColor="#1B75BC" />
+
+    <h3>
+      Percircle (Text based, uses same percent as above but translates it to a
+      letter grade)
+    </h3>
+    <pre>
+      <code> 
+        { 
+          percent: {{percent}},
+          displayTextAtZero: true,
+          text: {{letterGrade}}
+        } 
+      </code>
+    </pre>
+    <percircle :percent="percent" :text="letterGrade" />
+
+    <div class="buttons">
+      <button class="button" @click="add(10)">+10</button>
+      <button class="button" @click="add(-10)">-10</button>
+    </div>
+
+    <h3>Perdown (Countdown timer, clicking resets it)</h3>
+    <pre>
+      <code> 
+        { 
+          perdown: true,
+          secs: {{secs}},
+          timeUpText: "Done",
+          resetOnClick: true
+        } 
+      </code>
+    </pre>
+    <percircle perdown :secs="secs" timeUpText="Done" />
+
+    <h3>Perclock (Clock)</h3>
+    <pre>
+      <code> 
+        { 
+          perclock: true
+        } 
+      </code>
+    </pre>
+    <percircle perclock />
   </div>
 </template>
 
@@ -105,14 +66,39 @@ export default {
     Percircle,
   },
 
-  props: {
-    msg: String,
-  },
-
   data() {
     return {
       percent: 60,
+      secs: 35,
     };
+  },
+
+  computed: {
+    letterGrade() {
+      if (this.percent >= 90) {
+        return "A";
+      }
+
+      if (this.percent >= 80) {
+        return "B";
+      }
+
+      if (this.percent >= 70) {
+        return "C";
+      }
+
+      if (this.percent >= 60) {
+        return "D";
+      }
+
+      return "F";
+    },
+  },
+
+  methods: {
+    add(amount) {
+      this.percent += amount;
+    },
   },
 };
 </script>
@@ -139,5 +125,10 @@ pre code {
   border: 1px solid #999;
   display: block;
   padding: 20px;
+}
+
+.button {
+  cursor: pointer;
+  margin-left: 10px;
 }
 </style>
