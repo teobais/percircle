@@ -3,6 +3,7 @@
     :class="['percircle', { animate, gt50, perclock, initialized: ready }]"
     @mouseenter="startHover"
     @mouseleave="stopHover"
+    @click="timerReset"
   >
     <span :style="{ color: textColor }">{{ displayText }}</span>
     <div class="slice">
@@ -53,13 +54,13 @@ export default {
     //Text to display when countdown has completed.
     timeUpText: {
       type: String,
-      default: "Complete!",
+      default: "Done!",
     },
 
     //Whether to reset the countdown on percircle click
     resetOnClick: {
       type: Boolean,
-      default: false,
+      default: true,
     },
 
     //Whether to display text even when the percentage is 0
@@ -98,6 +99,8 @@ export default {
       ready: false,
       clockInterval: null,
       date: new Date(),
+      secsRemaining: this.secs,
+      timerInterval: null,
     };
   },
 
@@ -115,6 +118,8 @@ export default {
 
       if (this.perclock) {
         result = this.date.getSeconds() > 30;
+      } else if (this.perdown) {
+        result = this.secsRemaining > 30;
       } else if (this.renderedPercent || this.displayTextAtZero) {
         result = this.renderedPercent > 50;
       }
@@ -132,6 +137,12 @@ export default {
           this.getPadded(this.date.getMinutes()) +
           ":" +
           this.getPadded(this.date.getSeconds());
+      } else if (this.perdown) {
+        if (this.secsRemaining <= 0) {
+          text = this.timeUpText;
+        } else {
+          text = this.secsRemaining;
+        }
       } else if (this.renderedPercent || this.displayTextAtZero) {
         text = text || `${this.percent}%`;
       }
@@ -146,6 +157,8 @@ export default {
     rotationDegrees() {
       if (this.perclock) {
         return 6 * this.date.getSeconds();
+      } else if (this.perdown) {
+        return 6 * this.secsRemaining;
       }
 
       return 3.6 * this.renderedPercent;
@@ -174,6 +187,17 @@ export default {
         }
       },
     },
+
+    perdown: {
+      immediate: true,
+      handler(val) {
+        if (val) {
+          this.setTimerInterval();
+        } else {
+          this.deleteTimerInterval();
+        }
+      },
+    },
   },
 
   methods: {
@@ -191,84 +215,35 @@ export default {
       this.clockInterval = null;
     },
 
-    // init: function (options) {
-    //   // for each element matching selector
-    //   return this.each(function () {
+    setTimerInterval() {
+      this.timerInterval = setInterval(() => {
+        this.secsRemaining -= 1;
 
-    //     if (perdown) {
-    //       getCountdown(percircle, options, progressBarColor);
-    //     }
-    //   });
-    // },
-    // getCountdown(percircle, options, progressBarColor) {
-    //   var secs = percircle.attr("data-secs") || options.secs;
-    //   var timeUpText = percircle.attr("data-timeUpText") || options.timeUpText;
-    //   var reset = percircle[0].hasAttribute("data-reset") || options.reset;
+        if (this.secsRemaining <= 0) {
+          this.deleteTimerInterval();
+        }
+      }, 1000);
+    },
 
-    //   if (timeUpText.length > 8) timeUpText = "the end";
+    deleteTimerInterval() {
+      if (this.timerInterval) {
+        clearInterval(this.timerInterval);
+      }
 
-    //   var counter;
+      this.timerInterval = null;
+    },
 
-    //   if (reset) {
-    //     percircle.on("click", timerReset);
-    //   }
+    timerReset() {
+      if (!this.perdown || !this.resetOnClick) {
+        return;
+      }
 
-    //   function timer() {
-    //     secs -= 1;
+      this.deleteTimerInterval();
 
-    //     if (secs > 30) percircle.addClass("gt50");
-    //     if (secs < 30) percircle.removeClass("gt50");
+      this.secsRemaining = this.secs;
 
-    //     timerUpdate();
-
-    //     if (secs <= 0) {
-    //       timerStop();
-    //       percircle.html("<span>" + timeUpText + "</span>");
-    //       return;
-    //     }
-    //   }
-
-    //   function timerStart() {
-    //     counter = setInterval(timer, 1000);
-    //   }
-
-    //   function timerStop() {
-    //     clearInterval(counter);
-    //   }
-
-    //   function timerReset() {
-    //     timerStop();
-
-    //     secs = options.secs;
-    //     timerUpdate();
-
-    //     timerStart();
-    //   }
-
-    //   function timerUpdate() {
-    //     percircle.html("<span>" + secs + "</span>");
-    //     // add divs for structure
-    //     $(
-    //       '<div class="slice"><div class="bar" ' +
-    //         progressBarColor +
-    //         '></div><div class="fill" ' +
-    //         progressBarColor +
-    //         "></div></div>"
-    //     ).appendTo(percircle);
-
-    //     var rotationDegrees = 6 * secs; // temporary clockwise rotation value
-    //     $(".bar", percircle).css({
-    //       "-webkit-transform": "rotate(" + rotationDegrees + "deg)",
-    //       "-moz-transform": "rotate(" + rotationDegrees + "deg)",
-    //       "-ms-transform": "rotate(" + rotationDegrees + "deg)",
-    //       "-o-transform": "rotate(" + rotationDegrees + "deg)",
-    //       transform: "rotate(" + rotationDegrees + "deg)",
-    //     });
-    //   }
-
-    //   // Initialize timer
-    //   timerStart();
-    // },
+      this.setTimerInterval();
+    },
 
     // display a presentable format of current time
     getPadded(val) {
