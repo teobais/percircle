@@ -1,6 +1,6 @@
 ﻿<template>
   <div
-    :class="['percircle', { animate, dark, gt50 }]"
+    :class="['percircle', { animate, gt50, initialized: ready }]"
     @mouseenter="startHover"
     @mouseleave="stopHover"
   >
@@ -80,7 +80,7 @@ export default {
     //How full the bar is
     percent: {
       type: Number,
-      default: "0",
+      default: 0,
     },
 
     //Text to display in circle
@@ -88,26 +88,31 @@ export default {
       type: String,
       default: "",
     },
-
-    //Dark background
-    dark: {
-      type: Boolean,
-      default: false,
-    },
   },
 
   data() {
     return {
       hovering: false,
+      //Set progress bar to 0 initially to trigger transition
+      initialized: false,
+      ready: false,
     };
   },
 
   computed: {
+    renderedPercent() {
+      if (!this.initialized) {
+        return 0;
+      }
+
+      return this.percent;
+    },
+
     gt50() {
       let result = false;
 
-      if (this.percent || this.displayTextAtZero) {
-        result = this.percent > 50;
+      if (this.renderedPercent || this.displayTextAtZero) {
+        result = this.renderedPercent > 50;
       }
 
       return result;
@@ -116,7 +121,7 @@ export default {
     displayText() {
       let text = this.text;
 
-      if (this.percent || this.displayTextAtZero) {
+      if (this.renderedPercent || this.displayTextAtZero) {
         text = text || `${this.percent}%`;
       }
 
@@ -128,8 +133,19 @@ export default {
     },
 
     rotationDegrees() {
-      return 3.6 * this.percent;
+      return 3.6 * this.renderedPercent;
     },
+  },
+
+  mounted() {
+    setTimeout(() => {
+      //Display start up animation
+      this.initialized = true;
+
+      setTimeout(() => {
+        this.ready = true;
+      }, 250);
+    }, 0);
   },
 
   methods: {
@@ -138,26 +154,6 @@ export default {
 
     //   // for each element matching selector
     //   return this.each(function () {
-    //     if (percent || options.displayTextAtZero) {
-    //       if (percent > 50)
-    //         $(".bar", percircle).css({
-    //           "-webkit-transform": "rotate(180deg)",
-    //           "-moz-transform": "rotate(180deg)",
-    //           "-ms-transform": "rotate(180deg)",
-    //           "-o-transform": "rotate(180deg)",
-    //           transform: "rotate(180deg)",
-    //         });
-    //       var rotationDegrees = rotationMultiplier * percent;
-    //       // set timeout causes the animation to be visible on load
-    //       setTimeout(function () {
-    //         $(".bar", percircle).css({
-    //           "-webkit-transform": "rotate(" + rotationDegrees + "deg)",
-    //           "-moz-transform": "rotate(" + rotationDegrees + "deg)",
-    //           "-ms-transform": "rotate(" + rotationDegrees + "deg)",
-    //           "-o-transform": "rotate(" + rotationDegrees + "deg)",
-    //           transform: "rotate(" + rotationDegrees + "deg)",
-    //         });
-    //       }, 0);
     //     } else if (perclock) {
     //       if (!percircle.hasClass("perclock")) percircle.addClass("perclock");
 
@@ -304,38 +300,25 @@ export default {
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
   border-radius: 50%;
-  float: left;
-  margin: 0 0.1em 0.1em 0;
-  background-color: #cccccc;
+  margin: 0 auto;
+  background: transparent;
 
   *,
-  *:before,
-  *:after {
+  *:before {
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
     box-sizing: content-box;
   }
 
-  &.animate > span,
-  &.animate:after {
-    -webkit-transition: -webkit-transform 0.2s ease-in-out;
-    -moz-transition: -moz-transform 0.2s ease-in-out;
-    -ms-transition: -ms-transform 0.2s ease-in-out;
-    -o-transition: -o-transform 0.2s ease-in-out;
-    transition: transform 0.2s ease-in-out;
-
-    .bar {
-      -webkit-transition: -webkit-transform 0.6s ease-in-out;
-      -moz-transition: -moz-transform 0.6s ease-in-out;
-      -ms-transition: -ms-transform 0.6s ease-in-out;
-      -o-transition: -o-transform 0.6s ease-in-out;
-      transition: transform 0.6s ease-in-out;
+  &.animate {
+    .bar,
+    .fill {
+      transition: transform 0.2s ease-in-out;
     }
-  }
 
-  &.center {
-    float: none;
-    margin: 0 auto;
+    & > span {
+      transition: color 0.2s ease-in-out;
+    }
   }
 
   & > span {
@@ -344,28 +327,19 @@ export default {
     width: 100%;
     top: 50%;
     height: 1em;
-    margin-top: -0.5em;
-    font-size: 0.2em;
-    color: #cccccc;
     display: block;
     text-align: center;
     white-space: nowrap;
+    font-size: 0.2em;
+    margin-top: -0.5em;
+    color: rgba(52, 59, 62, 0.5);
   }
 
-  &:after {
-    position: absolute;
-    top: 0.08em;
-    left: 0.08em;
-    display: block;
-    content: " ";
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
+  &:before {
+    content: "";
     border-radius: 50%;
-    background-color: #f5f5f5;
-    width: 0.84em;
-    height: 0.84em;
+    border: solid rgba(0, 0, 0, 0.1);
+    position: absolute;
   }
 
   .slice {
@@ -377,73 +351,66 @@ export default {
 
   &:hover {
     cursor: default;
-  }
 
-  &:hover > span {
-    -webkit-transform: scale(1.3);
-    -moz-transform: scale(1.3);
-    -ms-transform: scale(1.3);
-    -o-transform: scale(1.3);
-    transform: scale(1.3);
-    color: #307bbb;
-  }
-
-  &:hover:after {
-    -webkit-transform: scale(1.1);
-    -moz-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    -o-transform: scale(1.1);
-    transform: scale(1.1);
-  }
-
-  &.dark {
-    background-color: #777777;
+    &:before,
+    .bar,
+    .fill {
+      border-width: 0.04em;
+    }
 
     & > span {
-      color: #ffffff;
+      -webkit-transform: scale(1.3);
+      -moz-transform: scale(1.3);
+      -ms-transform: scale(1.3);
+      -o-transform: scale(1.3);
+      transform: scale(1.3);
+      color: #307bbb;
     }
+  }
+
+  &:before,
+  .bar,
+  .fill {
+    border-width: 0.08em;
+    width: 1em;
+    height: 1em;
+    box-sizing: border-box;
+  }
+
+  .fill {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
   }
 }
 
-.rect-auto,
-.percircle.gt50 .slice {
+.initialized.percircle.gt50 .slice {
   clip: rect(auto, auto, auto, auto);
 }
 
-.pie,
 .percircle .bar,
 .gt50 .fill {
   position: absolute;
   border: 0.08em solid #307bbb;
-  width: 0.84em;
-  height: 0.84em;
   clip: rect(0, 0.5em, 1em, 0);
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
   border-radius: 50%;
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
-  transform: rotate(0deg);
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 .bar {
   -moz-backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-}
-
-.pie-fill,
-.gt50 .bar:after,
-.gt50 .fill {
-  -webkit-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  -o-transform: rotate(180deg);
-  transform: rotate(180deg);
 }
 
 .perclock > span {
