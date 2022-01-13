@@ -10,7 +10,7 @@
     </p>
 
     <h3>Percircle test</h3>
-    <percircle :percent="percent" />
+    <percircle perclock />
     <h3>Installed CLI Plugins</h3>
     <ul>
       <li>

@@ -1,6 +1,6 @@
 ﻿<template>
   <div
-    :class="['percircle', { animate, gt50, initialized: ready }]"
+    :class="['percircle', { animate, gt50, perclock, initialized: ready }]"
     @mouseenter="startHover"
     @mouseleave="stopHover"
   >
@@ -96,6 +96,8 @@ export default {
       //Set progress bar to 0 initially to trigger transition
       initialized: false,
       ready: false,
+      clockInterval: null,
+      date: new Date(),
     };
   },
 
@@ -111,7 +113,9 @@ export default {
     gt50() {
       let result = false;
 
-      if (this.renderedPercent || this.displayTextAtZero) {
+      if (this.perclock) {
+        result = this.date.getSeconds() > 30;
+      } else if (this.renderedPercent || this.displayTextAtZero) {
         result = this.renderedPercent > 50;
       }
 
@@ -121,7 +125,14 @@ export default {
     displayText() {
       let text = this.text;
 
-      if (this.renderedPercent || this.displayTextAtZero) {
+      if (this.perclock) {
+        text =
+          this.getPadded(this.date.getHours()) +
+          ":" +
+          this.getPadded(this.date.getMinutes()) +
+          ":" +
+          this.getPadded(this.date.getSeconds());
+      } else if (this.renderedPercent || this.displayTextAtZero) {
         text = text || `${this.percent}%`;
       }
 
@@ -133,6 +144,10 @@ export default {
     },
 
     rotationDegrees() {
+      if (this.perclock) {
+        return 6 * this.date.getSeconds();
+      }
+
       return 3.6 * this.renderedPercent;
     },
   },
@@ -148,57 +163,39 @@ export default {
     }, 0);
   },
 
-  methods: {
-    // init: function (options) {
-    //   var rotationMultiplier = 3.6;
+  watch: {
+    perclock: {
+      immediate: true,
+      handler(val) {
+        if (val) {
+          this.setClockInterval();
+        } else {
+          this.deleteClockInterval();
+        }
+      },
+    },
+  },
 
+  methods: {
+    setClockInterval() {
+      this.clockInterval = setInterval(() => {
+        this.date = new Date();
+      }, 1000);
+    },
+
+    deleteClockInterval() {
+      if (this.clockInterval) {
+        clearInterval(this.clockInterval);
+      }
+
+      this.clockInterval = null;
+    },
+
+    // init: function (options) {
     //   // for each element matching selector
     //   return this.each(function () {
-    //     } else if (perclock) {
-    //       if (!percircle.hasClass("perclock")) percircle.addClass("perclock");
 
-    //       setInterval(function () {
-    //         var d = new Date(); // without params it defaults to "now"
-    //         var text =
-    //           getPadded(d.getHours()) +
-    //           ":" +
-    //           getPadded(d.getMinutes()) +
-    //           ":" +
-    //           getPadded(d.getSeconds());
-
-    //         percircle.html("<span>" + text + "</span>");
-    //         // add divs for structure
-    //         $(
-    //           '<div class="slice"><div class="bar" ' +
-    //             progressBarColor +
-    //             '></div><div class="fill" ' +
-    //             progressBarColor +
-    //             "></div></div>"
-    //         ).appendTo(percircle);
-
-    //         var seconds = d.getSeconds();
-    //         if (seconds === 0) percircle.removeClass("gt50");
-    //         if (seconds > 30) {
-    //           percircle.addClass("gt50");
-    //           $(".bar", percircle).css({
-    //             "-webkit-transform": "rotate(180deg);scale(1,3)",
-    //             "-moz-transform": "rotate(180deg);scale(1,3)",
-    //             "-ms-transform": "rotate(180deg);scale(1,3)",
-    //             "-o-transform": "rotate(180deg);scale(1,3)",
-    //             transform: "rotate(180deg);scale(1,3)",
-    //           });
-    //         }
-
-    //         var rotationDegrees = 6 * seconds; // temporary clockwise rotation value
-    //         $(".bar", percircle).css({
-    //           "-webkit-transform": "rotate(" + rotationDegrees + "deg)",
-    //           "-moz-transform": "rotate(" + rotationDegrees + "deg)",
-    //           "-ms-transform": "rotate(" + rotationDegrees + "deg)",
-    //           "-o-transform": "rotate(" + rotationDegrees + "deg)",
-    //           transform: "rotate(" + rotationDegrees + "deg)",
-    //         });
-    //       }, 1000);
-    //     } else if (perdown) {
+    //     if (perdown) {
     //       getCountdown(percircle, options, progressBarColor);
     //     }
     //   });
@@ -273,10 +270,10 @@ export default {
     //   timerStart();
     // },
 
-    // // display a presentable format of current time
-    // getPadded(val) {
-    //   return val < 10 ? "0" + val : val;
-    // },
+    // display a presentable format of current time
+    getPadded(val) {
+      return val < 10 ? "0" + val : val;
+    },
 
     startHover() {
       this.hovering = true;
@@ -311,8 +308,7 @@ export default {
   }
 
   &.animate {
-    .bar,
-    .fill {
+    .bar {
       transition: transform 0.2s ease-in-out;
     }
 
