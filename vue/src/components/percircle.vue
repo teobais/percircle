@@ -1,6 +1,9 @@
 ﻿<template>
   <div
-    :class="['percircle', { animate, gt50, perclock, initialized: ready }]"
+    :class="[
+      'percircle',
+      { animate, gt50: addGt50, perclock, perdown, initialized: ready },
+    ]"
     @mouseenter="startHover"
     @mouseleave="stopHover"
     @click="timerReset"
@@ -101,6 +104,8 @@ export default {
       date: new Date(),
       secsRemaining: this.secs,
       timerInterval: null,
+      addGt50: false,
+      gt50RenderTimeout: null,
     };
   },
 
@@ -110,7 +115,7 @@ export default {
         return 0;
       }
 
-      return this.percent;
+      return this.percent > 100 ? 100 : this.percent < 0 ? 0 : this.percent;
     },
 
     gt50() {
@@ -172,7 +177,7 @@ export default {
 
       setTimeout(() => {
         this.ready = true;
-      }, 250);
+      }, 150);
     }, 0);
   },
 
@@ -200,6 +205,28 @@ export default {
           this.setTimerInterval();
         } else {
           this.deleteTimerInterval();
+        }
+      },
+    },
+
+    gt50: {
+      immediate: true,
+      handler(val) {
+        //Handling the annoying flip between gt50's styles
+        //Could probably be improved if the circle was converted to an SVG - one grey circle with one overlaid progress circle
+        if (!val) {
+          //Wait until bar animation completes, then flip off the fill
+          this.gt50RenderTimeout = setTimeout(() => {
+            this.addGt50 = val;
+            this.gt50RenderTimeout = null;
+          }, 220);
+        } else {
+          if (this.gt50RenderTimeout) {
+            clearTimeout(this.gt50RenderTimeout);
+            this.gt50RenderTimeout = null;
+          }
+
+          this.addGt50 = val;
         }
       },
     },
@@ -365,36 +392,44 @@ export default {
     -o-transform: rotate(0deg);
     transform: rotate(0deg);
   }
-}
 
-.initialized.percircle.gt50 .slice {
-  clip: rect(auto, auto, auto, auto);
-}
+  .bar,
+  .fill {
+    position: absolute;
+    border: 0.08em solid #307bbb;
+    clip: rect(0, 0.5em, 1em, 0);
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+  }
 
-.percircle .bar,
-.gt50 .fill {
-  position: absolute;
-  border: 0.08em solid #307bbb;
-  clip: rect(0, 0.5em, 1em, 0);
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-  border-radius: 50%;
-  -webkit-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  -o-transform: rotate(180deg);
-  transform: rotate(180deg);
-}
+  .bar {
+    -moz-backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
 
-.bar {
-  -moz-backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+  &.gt50 .fill {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+
+  &.initialized.gt50 .slice {
+    clip: rect(auto, auto, auto, auto);
+  }
 }
 
 .perclock > span {
   font-size: 0.175em;
+}
+
+.perclock.animate .bar,
+.perdown.animate .bar {
+  transition: border-width 0.2s ease-in-out;
 }
 </style>

@@ -12,6 +12,11 @@
     </pre>
     <percircle :percent="percent" progressBarColor="#1B75BC" />
 
+    <div class="buttons">
+      <button class="button" @click="add(10)">+10</button>
+      <button class="button" @click="add(-10)">-10</button>
+    </div>
+
     <h3>
       Percircle (Text based, uses same percent as above but translates it to a
       letter grade)
