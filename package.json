@@ -5,7 +5,7 @@
   "main": "dist/js/percircle.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/teobais/percircle.git"
+    "url": "git+https://github.com/teobais/percircle.git"
   },
   "keywords": [
     "jquery-plugin",
@@ -14,11 +14,7 @@
     "circle",
     "ui"
   ],
-  "author": {
-    "name": "Teo Bais",
-    "email": "thodoris.bais@gmail.com",
-    "url": "http://thodorisbais.nl/"
-  },
+  "author": "Teo Bais <thodoris.bais@gmail.com> (http://thodorisbais.nl/)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/teobais/percircle/issues"
