@@ -29,6 +29,7 @@
 
 <script>
 export default {
+  //External classes with styles - set on component itself (<percircle class="big" />): .big, .small, .dark
   props: {
     //Whether to animate the progress bar on load (or view)
     animate: {
@@ -472,6 +473,24 @@ export default {
   &.initialized.gt50 .slice {
     clip: rect(auto, auto, auto, auto);
   }
+
+  &.small {
+    font-size: 80px;
+  }
+
+  &.big {
+    font-size: 240px;
+  }
+
+  &.dark {
+    > span {
+      color: #ffffff;
+    }
+
+    &:before {
+      border-color: rgba(255, 255, 255, 0.7);
+    }
+  }
 }
 
 .perclock > span {
@@ -481,17 +500,5 @@ export default {
 .perclock.animate .bar,
 .perdown.animate .bar {
   transition: border-width 0.2s ease-in-out;
-}
-
-.percircle,
-.perdown,
-.perclock {
-  &.small {
-    font-size: 80px;
-  }
-
-  &.big {
-    font-size: 240px;
-  }
 }
 </style>

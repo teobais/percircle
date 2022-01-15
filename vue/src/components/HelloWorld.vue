@@ -18,12 +18,12 @@
     </div>
 
     <h3>
-      Percircle (Text based, small size, uses same percent as above but
-      translates it to a letter grade)
+      Percircle (Text based, small size, dark background, uses same percent as
+      above but translates it to a letter grade)
     </h3>
     <pre>
       <code> 
-        class="small"
+        class="small dark"
 
         { 
           percent: {{percent}},
@@ -32,7 +32,9 @@
         } 
       </code>
     </pre>
-    <percircle class="small" :percent="percent" :text="letterGrade" />
+    <div class="dark-background">
+      <percircle class="small dark" :percent="percent" :text="letterGrade" />
+    </div>
 
     <div class="buttons">
       <button class="button" @click="add(10)">+10</button>
@@ -156,5 +158,11 @@ pre code {
 .button {
   cursor: pointer;
   margin-left: 10px;
+}
+
+.dark-background {
+  background-color: black;
+  margin-bottom: 20px;
+  padding: 20px;
 }
 </style>
