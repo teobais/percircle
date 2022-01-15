@@ -482,4 +482,16 @@ export default {
 .perdown.animate .bar {
   transition: border-width 0.2s ease-in-out;
 }
+
+.percircle,
+.perdown,
+.perclock {
+  &.small {
+    font-size: 80px;
+  }
+
+  &.big {
+    font-size: 240px;
+  }
+}
 </style>

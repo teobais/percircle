@@ -18,11 +18,13 @@
     </div>
 
     <h3>
-      Percircle (Text based, uses same percent as above but translates it to a
-      letter grade)
+      Percircle (Text based, small size, uses same percent as above but
+      translates it to a letter grade)
     </h3>
     <pre>
       <code> 
+        class="small"
+
         { 
           percent: {{percent}},
           displayTextAtZero: true,
@@ -30,16 +32,18 @@
         } 
       </code>
     </pre>
-    <percircle :percent="percent" :text="letterGrade" />
+    <percircle class="small" :percent="percent" :text="letterGrade" />
 
     <div class="buttons">
       <button class="button" @click="add(10)">+10</button>
       <button class="button" @click="add(-10)">-10</button>
     </div>
 
-    <h3>Perdown (Countdown timer, clicking resets it)</h3>
+    <h3>Perdown (Countdown timer, big size, clicking resets it)</h3>
     <pre>
       <code> 
+        class="big"
+
         { 
           perdown: true,
           secs: {{secs}},
@@ -48,7 +52,7 @@
         } 
       </code>
     </pre>
-    <percircle perdown :secs="secs" timeUpText="Done" />
+    <percircle class="big" perdown :secs="secs" timeUpText="Done" />
 
     <h3>Perclock (Clock)</h3>
     <pre>
